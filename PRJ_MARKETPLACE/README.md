@@ -1,4 +1,4 @@
-# MARKETPLACE_PRJ — Работа с маркетплейсами
+# PRJ_MARKETPLACE — Работа с маркетплейсами
 
 Last Updated: 2026-02-12
 
@@ -15,5 +15,5 @@ Last Updated: 2026-02-12
 - [sales_data_v1.0.xlsx](sales_data_v1.0.xlsx) — история продаж за 3 месяца [CANONICAL]
 
 ## Связанные проекты
-- [REF: ANALYTICS_PRJ/] — общая аналитика
-- [REF: backlog/backlog.xlsx] — задачи по проекту (PRJ = MARKETPLACE)
+- [REF: PRJ_ANALYTICS/] — общая аналитика
+- [REF: backlog/Backlog.txt] — задачи по проекту (PRJ = MARKETPLACE)

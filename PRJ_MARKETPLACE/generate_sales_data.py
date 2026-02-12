@@ -401,7 +401,7 @@ ws.freeze_panes = "A2"
 # ============================================================
 # 8. SAVE
 # ============================================================
-output_path = "/Users/vadimbakanov/Documents/_CODE/vibecommerce_test_code/MARKETPLACE_PRJ/sales_data_v1.0.xlsx"
+output_path = "/Users/vadimbakanov/Documents/_CODE/vibecommerce_test_code/PRJ_MARKETPLACE/sales_data_v1.0.xlsx"
 wb.save(output_path)
 print(f"✓ Файл сохранён: {output_path}")
 print(f"  Каталог: {len(products)} SKU")

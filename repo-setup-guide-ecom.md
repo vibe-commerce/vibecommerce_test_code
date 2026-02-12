@@ -71,7 +71,7 @@ git init
 5. Полный ответ
 
 ## Architecture
-- *_PRJ/ — папки проектов
+- PRJ_*/ — папки проектов
 - backlog/ — бэклог задач
 - scripts/ — утилиты
 
@@ -141,13 +141,13 @@ my-ecom-repo/
 │   ├── backlog.xlsx             # Единый бэклог задач
 │   ├── new-tasks.md             # Входящие задачи
 │   └── README.md
-├── MARKETPLACE_PRJ/             # Проект: работа с маркетплейсами
+├── PRJ_MARKETPLACE/             # Проект: работа с маркетплейсами
 │   ├── README.md
 │   └── FACTS.md
-├── DTC_PRJ/                     # Проект: собственный e-com
+├── PRJ_DTC/                     # Проект: собственный e-com
 │   ├── README.md
 │   └── FACTS.md
-└── ANALYTICS_PRJ/               # Проект: аналитика и отчёты
+└── PRJ_ANALYTICS/               # Проект: аналитика и отчёты
     └── README.md
 ```
 
@@ -224,7 +224,7 @@ Last Updated: YYYY-MM-DD
 - [FACTS.md](FACTS.md) — контакты, реквизиты, ключевые метрики
 
 ## Связанные проекты
-- [REF: ANALYTICS_PRJ/] — общая аналитика
+- [REF: PRJ_ANALYTICS/] — общая аналитика
 - [REF: backlog/backlog.xlsx] — задачи по проекту
 ```
 
@@ -270,14 +270,14 @@ Last Updated: YYYY-MM-DD
 | Тег | Значение | Пример |
 |-----|----------|--------|
 | `[CANONICAL]` | Первоисточник, авторитетное определение | `Средний чек: 2 850 руб. [CANONICAL]` |
-| `[REF: path#section]` | Ссылка на первоисточник | `[REF: MARKETPLACE_PRJ/FACTS.md#ключевые-метрики]` |
+| `[REF: path#section]` | Ссылка на первоисточник | `[REF: PRJ_MARKETPLACE/FACTS.md#ключевые-метрики]` |
 | `[CONFIRMED: source]` | Проверенная информация | `[CONFIRMED: отчёт WB за январь 2026]` |
 | `[PLACEHOLDER: owner]` | Нужно заполнить | `[PLACEHOLDER: аналитик — уточнить ROI]` |
 
 ### Как это работает
 
-1. В `MARKETPLACE_PRJ/FACTS.md` пишешь: `Комиссия WB: 15% [CANONICAL]`
-2. В любом другом файле: `Комиссия WB: 15% [REF: MARKETPLACE_PRJ/FACTS.md#реквизиты]`
+1. В `PRJ_MARKETPLACE/FACTS.md` пишешь: `Комиссия WB: 15% [CANONICAL]`
+2. В любом другом файле: `Комиссия WB: 15% [REF: PRJ_MARKETPLACE/FACTS.md#реквизиты]`
 3. Если факт изменился — обновляешь только FACTS.md, а Claude Code найдёт все [REF:] и предложит обновить
 
 ---
@@ -702,7 +702,7 @@ Claude Code автоматически ведёт файл `.claude/memory/MEMOR
 - [ ] `README.md` в корне с описанием и структурой
 - [ ] `.gitignore` настроен
 - [ ] Git инициализирован, первый коммит сделан
-- [ ] Хотя бы одна папка `*_PRJ/` с README.md
+- [ ] Хотя бы одна папка `PRJ_*/` с README.md
 - [ ] `backlog/backlog.xlsx` создан
 
 ### Полная настройка
@@ -730,7 +730,7 @@ Claude Code автоматически ведёт файл `.claude/memory/MEMOR
 | Коммитишь .env / секреты | Утечка ключей и паролей | Проверь .gitignore ДО первого коммита |
 | Не делаешь бэкапы | Потеря работы | `backup "комментарий"` каждый день |
 | Перегруженный CLAUDE.md | Claude Code путается в противоречивых правилах | До 150 строк, выноси детали в скиллы и роли |
-| Всё в корне | Хаос из 50 файлов | Проекты в `*_PRJ/`, утилиты в `scripts/` |
+| Всё в корне | Хаос из 50 файлов | Проекты в `PRJ_*/`, утилиты в `scripts/` |
 | Excel через `Workbook()` | Убивает форматирование существующего файла | Только `load_workbook()` для существующих файлов |
 
 ---

@@ -22,9 +22,10 @@ vibecommerce_test_code/
 ├── scripts/                     # Утилиты (бэкап, конвертация)
 ├── backlog/                     # Бэклог задач (Backlog.txt — SSoT)
 ├── documentation/               # Документация по архитектуре и проектам
-├── MARKETPLACE_PRJ/             # Проект: маркетплейсы
-├── DTC_PRJ/                     # Проект: собственный e-com
-└── ANALYTICS_PRJ/               # Проект: аналитика и отчёты
+├── PRJ_MARKETPLACE/             # Проект: маркетплейсы
+├── PRJ_DTC/                     # Проект: собственный e-com
+├── PRJ_ANALYTICS/               # Проект: аналитика и отчёты
+└── PRJ_DEMO/                    # Проект: демо
 ```
 
 ## Common Commands
@@ -35,6 +36,9 @@ vibecommerce_test_code/
 ## Role Selection
 - E-commerce вопросы → _PROMPTS/_ROLES/Head_of_E-Commerce.md
 - Планирование и задачи → _PROMPTS/_ROLES/Project_Manager.md
+
+## Project Naming
+Папки проектов именуются `PRJ_<NAME>/` (префикс PRJ_, затем название).
 
 ## File Editing Rules
 - **Excel:** всегда `openpyxl.load_workbook()` для существующих файлов, НИКОГДА `Workbook()`

@@ -1,4 +1,4 @@
-# ANALYTICS_PRJ — Аналитика и отчёты
+# PRJ_ANALYTICS — Аналитика и отчёты
 
 Last Updated: 2026-02-12
 
@@ -9,6 +9,6 @@ Last Updated: 2026-02-12
 _(папки создаются по мере появления отчётов)_
 
 ## Связанные проекты
-- [REF: MARKETPLACE_PRJ/FACTS.md] — метрики маркетплейсов
-- [REF: DTC_PRJ/FACTS.md] — метрики D2C
-- [REF: backlog/backlog.xlsx] — задачи по проекту (PRJ = ANALYTICS)
+- [REF: PRJ_MARKETPLACE/FACTS.md] — метрики маркетплейсов
+- [REF: PRJ_DTC/FACTS.md] — метрики D2C
+- [REF: backlog/Backlog.txt] — задачи по проекту (PRJ = ANALYTICS)

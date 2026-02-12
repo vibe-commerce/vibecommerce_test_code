@@ -1,4 +1,4 @@
-# DTC_PRJ — Собственный E-Commerce (D2C)
+# PRJ_DTC — Собственный E-Commerce (D2C)
 
 Last Updated: 2026-02-12
 
@@ -9,5 +9,5 @@ Last Updated: 2026-02-12
 - [FACTS.md](FACTS.md) — ключевые метрики, конверсии, трафик
 
 ## Связанные проекты
-- [REF: ANALYTICS_PRJ/] — общая аналитика
-- [REF: backlog/backlog.xlsx] — задачи по проекту (PRJ = DTC)
+- [REF: PRJ_ANALYTICS/] — общая аналитика
+- [REF: backlog/Backlog.txt] — задачи по проекту (PRJ = DTC)

@@ -1,4 +1,4 @@
-# Vibecommerce — Рабочее пространство E-Commerce менеджера
+# Vibe-Commerce — Рабочее пространство E-Commerce менеджера
 
 Last Updated: 2026-02-12
 
@@ -8,10 +8,10 @@ Last Updated: 2026-02-12
 ## Структура
 
 ### Проекты
-- [MARKETPLACE_PRJ/](MARKETPLACE_PRJ/) — работа с маркетплейсами (WB, OZON, и др.)
-- [DTC_PRJ/](DTC_PRJ/) — собственный e-commerce (D2C)
-- [ANALYTICS_PRJ/](ANALYTICS_PRJ/) — аналитика и отчёты
-- [DEMO_PRJ/](DEMO_PRJ/) — демо-проект (финансовые модели, слайды)
+- [PRJ_MARKETPLACE/](PRJ_MARKETPLACE/) — работа с маркетплейсами (WB, OZON, и др.)
+- [PRJ_DTC/](PRJ_DTC/) — собственный e-commerce (D2C)
+- [PRJ_ANALYTICS/](PRJ_ANALYTICS/) — аналитика и отчёты
+- [PRJ_DEMO/](PRJ_DEMO/) — демо-проект (финансовые модели, слайды)
 
 ### Управление
 - [backlog/](backlog/) — бэклог задач (`Backlog.txt` — Single Source of Truth)
