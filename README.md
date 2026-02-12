@@ -14,8 +14,9 @@ Last Updated: 2026-02-12
 - [DEMO_PRJ/](DEMO_PRJ/) — демо-проект (финансовые модели, слайды)
 
 ### Управление
-- [backlog/](backlog/) — бэклог задач (`backlog.xlsx` — Single Source of Truth)
+- [backlog/](backlog/) — бэклог задач (`Backlog.txt` — Single Source of Truth)
 - [scripts/](scripts/) — утилиты (бэкап, конвертация, отчёты)
+- [documentation/](documentation/) — документация по архитектуре и проектам
 
 ### Настройки Claude Code
 - [CLAUDE.md](CLAUDE.md) — главная инструкция
@@ -29,5 +30,5 @@ Last Updated: 2026-02-12
 3. Используй скиллы: `/ecom-manager`, `/project-manager`, `/excel-worker`
 
 ## Связанные ресурсы
-- [REF: backlog/backlog.xlsx] — все задачи
+- [REF: backlog/Backlog.txt] — все задачи
 - [REF: _PROMPTS/_ROLES/] — экспертные роли

@@ -5,9 +5,9 @@
 
 ## Response Format
 Каждый ответ начинается с:
-1. Unclearness of the task: <0-1> — если >0.3, сначала задать уточняющие вопросы
-2. Uncertainty of answer: <0-1>
-3. Role: <экспертная роль>
+1. Понятность задачи: <0–100%> — если <70%, сначала задать уточняющие вопросы
+2. Уверенность в ответе: <0–100%>
+3. Роль: <экспертная роль>
 4. TL;DR
 5. Полный ответ
 
@@ -20,7 +20,8 @@ vibecommerce_test_code/
 ├── .claude/rules/               # Автоматически загружаемые правила
 ├── _PROMPTS/_ROLES/             # Экспертные роли
 ├── scripts/                     # Утилиты (бэкап, конвертация)
-├── backlog/                     # Бэклог задач (backlog.xlsx — SSoT)
+├── backlog/                     # Бэклог задач (Backlog.txt — SSoT)
+├── documentation/               # Документация по архитектуре и проектам
 ├── MARKETPLACE_PRJ/             # Проект: маркетплейсы
 ├── DTC_PRJ/                     # Проект: собственный e-com
 └── ANALYTICS_PRJ/               # Проект: аналитика и отчёты
@@ -45,7 +46,7 @@ vibecommerce_test_code/
 - Каждая папка должна иметь README.md
 
 ## Backlog Rules
-- Единый файл `backlog/backlog.xlsx` — Single Source of Truth
+- Единый файл `backlog/Backlog.txt` — Single Source of Truth
 - Не менять структуру колонок без явной команды
 - Новые задачи — только добавлением строк (не перенумеровывать ID)
 - Статусы: `TO DO`, `WIP`, `ON PRIORITY`, `DONE`, `ON HOLD`
