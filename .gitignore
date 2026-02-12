@@ -1,0 +1,20 @@
+# Секреты
+.env
+*.pem
+credentials.json
+
+# Системное
+.DS_Store
+Thumbs.db
+__pycache__/
+.venv/
+*.tmp
+node_modules/
+
+# Персональные данные клиентов
+**/client_data/
+**/personal_data/
+
+# Слишком большие файлы (>100MB)
+*.iso
+*.dmg

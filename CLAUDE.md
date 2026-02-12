@@ -1,0 +1,67 @@
+# CLAUDE.md
+
+## Repository Overview
+Рабочее пространство e-commerce менеджера (ИП Баканов Вадим). Проекты, аналитика, бэклог задач, автоматизация рутины.
+
+## Response Format
+Каждый ответ начинается с:
+1. Unclearness of the task: <0-1> — если >0.3, сначала задать уточняющие вопросы
+2. Uncertainty of answer: <0-1>
+3. Role: <экспертная роль>
+4. TL;DR
+5. Полный ответ
+
+## Architecture
+```
+vibecommerce_test_code/
+├── CLAUDE.md                    # Этот файл
+├── README.md                    # Навигация и обзор
+├── .claude/skills/              # Скиллы (переиспользуемые команды)
+├── .claude/rules/               # Автоматически загружаемые правила
+├── _PROMPTS/_ROLES/             # Экспертные роли
+├── scripts/                     # Утилиты (бэкап, конвертация)
+├── backlog/                     # Бэклог задач (backlog.xlsx — SSoT)
+├── MARKETPLACE_PRJ/             # Проект: маркетплейсы
+├── DTC_PRJ/                     # Проект: собственный e-com
+└── ANALYTICS_PRJ/               # Проект: аналитика и отчёты
+```
+
+## Common Commands
+- `backup "комментарий"` — бэкап на GitHub (`./scripts/backup_to_git.zsh`)
+- `xlsx2md файл.xlsx` — Excel → Markdown (`uv run --with openpyxl scripts/convert_xlsx_to_md.py`)
+- `md2html отчёт.md` — Markdown → HTML (`uv run --with markdown scripts/md_to_html.py`)
+
+## Role Selection
+- E-commerce вопросы → _PROMPTS/_ROLES/Head_of_E-Commerce.md
+- Планирование и задачи → _PROMPTS/_ROLES/Project_Manager.md
+
+## File Editing Rules
+- **Excel:** всегда `openpyxl.load_workbook()` для существующих файлов, НИКОГДА `Workbook()`
+- **Excel сохранение:** с суффиксом `_vX.Y.xlsx` (X — крупные изменения, Y — мелкие)
+- **Менять только указанные ячейки** — не трогать остальные данные
+- **Даты в Excel** — в формате Excel date, не строкой
+- **Заголовки Excel** — жирным при создании новых таблиц
+- **Markdown:** обновлять README.md при изменении структуры папки
+- Каждая папка должна иметь README.md
+
+## Backlog Rules
+- Единый файл `backlog/backlog.xlsx` — Single Source of Truth
+- Не менять структуру колонок без явной команды
+- Новые задачи — только добавлением строк (не перенумеровывать ID)
+- Статусы: `TO DO`, `WIP`, `ON PRIORITY`, `DONE`, `ON HOLD`
+- Приоритеты 1–100, без дубликатов, абсолютные
+
+## Cross-References
+- `[CANONICAL]` — первоисточник
+- `[REF: path#section]` — ссылка на первоисточник
+- `[CONFIRMED: source]` — проверенная информация
+- `[PLACEHOLDER: owner]` — нужно заполнить
+Не дублируй — ссылайся. Каждый факт описан в одном месте.
+
+## Git Rules
+БЕЗ явной команды пользователя НЕ делать:
+- `git push`
+- `git commit`
+- `git rebase`
+- `git reset`
+- `git branch -D`
