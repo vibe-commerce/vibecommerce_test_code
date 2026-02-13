@@ -3,7 +3,6 @@
     <img src="https://vibecommerce.ru/vibe-commerce-logo.png" alt="Вайб-Коммерс" width="80">
   </a>
   <h3>Тестовый репозиторий для трекинг-курса «Вайб-Коммерс»</h3>
-  <p>Рабочее пространство для проектов, аналитики, бэклога задач и автоматизации с помощью Claude Code.</p>
   <a href="https://vibecommerce.ru/course?r=gh">
     <img src="https://img.shields.io/badge/Подробнее_→-00BCD4?style=for-the-badge&logoColor=white" alt="Подробнее">
   </a>
