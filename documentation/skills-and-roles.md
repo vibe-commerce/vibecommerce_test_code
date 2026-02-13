@@ -17,14 +17,11 @@ Last Updated: 2026-02-12
 ### /skill-creator
 Создание новых скиллов для Claude Code.
 
-## Экспертные роли (_PROMPTS/_ROLES/)
-Роли задают контекст и стиль ответа Claude.
+## Экспертные роли (внутри скиллов)
+Роли встроены в скиллы как `references/role.md` и загружаются автоматически при вызове скилла.
 
-### Head_of_E-Commerce
-Для e-commerce вопросов: аналитика продаж, оптимизация карточек, стратегия на маркетплейсах.
-
-### Project_Manager
-Для планирования и управления задачами: приоритизация, спринты, статус-отчёты.
+- **ecom-manager** → `.claude/skills/ecom-manager/references/role.md` (Head of E-Commerce)
+- **project-manager** → `.claude/skills/project-manager/references/role.md` (Project Manager)
 
 ## Автоматические правила (.claude/rules/)
 Правила загружаются автоматически при каждом запуске.

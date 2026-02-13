@@ -20,15 +20,14 @@ Last Updated: 2026-02-12
 
 ### Настройки Claude Code
 - [CLAUDE.md](CLAUDE.md) — главная инструкция
-- [_PROMPTS/_ROLES/](_PROMPTS/_ROLES/) — экспертные роли
-- `.claude/skills/` — скиллы (ecom-manager, project-manager, excel-worker)
-- `.claude/rules/` — автоматически загружаемые правила
+- `.claude/skills/` — скиллы + экспертные роли (ecom-manager, project-manager, excel-worker, backup)
+- `.claude/rules/` — автоматически загружаемые правила (error-learning, auto-backup)
 
 ## Быстрый старт
 1. Открой Claude Code в этой папке
 2. Он прочитает `CLAUDE.md` и сразу знает контекст
-3. Используй скиллы: `/ecom-manager`, `/project-manager`, `/excel-worker`
+3. Используй скиллы: `/ecom-manager`, `/project-manager`, `/excel-worker`, `/backup`
 
 ## Связанные ресурсы
 - [REF: backlog/Backlog.txt] — все задачи
-- [REF: _PROMPTS/_ROLES/] — экспертные роли
+- [REF: .claude/skills/] — скиллы и экспертные роли

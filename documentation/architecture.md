@@ -46,14 +46,10 @@ vibecommerce_test_code/
 │   ├── convert_xlsx_to_md.py    # Excel → Markdown
 │   └── md_to_html.py            # Markdown → HTML
 │
-├── _PROMPTS/_ROLES/             # Экспертные роли
-│   ├── Head_of_E-Commerce.md
-│   └── Project_Manager.md
-│
 └── .claude/                     # Настройки Claude Code
-    ├── skills/                  # Скиллы
-    │   ├── ecom-manager/
-    │   ├── project-manager/
+    ├── skills/                  # Скиллы + экспертные роли
+    │   ├── ecom-manager/        # (references/role.md = Head of E-Commerce)
+    │   ├── project-manager/     # (references/role.md = Project Manager)
     │   ├── excel-worker/
     │   └── skill-creator/
     └── rules/                   # Автоматически загружаемые правила

@@ -16,9 +16,8 @@
 vibecommerce_test_code/
 ├── CLAUDE.md                    # Этот файл
 ├── README.md                    # Навигация и обзор
-├── .claude/skills/              # Скиллы (переиспользуемые команды)
+├── .claude/skills/              # Скиллы (команды + экспертные роли)
 ├── .claude/rules/               # Автоматически загружаемые правила
-├── _PROMPTS/_ROLES/             # Экспертные роли
 ├── scripts/                     # Утилиты (бэкап, конвертация)
 ├── backlog/                     # Бэклог задач (Backlog.txt — SSoT)
 ├── documentation/               # Документация по архитектуре и проектам
@@ -34,8 +33,8 @@ vibecommerce_test_code/
 - `md2html отчёт.md` — Markdown → HTML (`uv run --with markdown scripts/md_to_html.py`)
 
 ## Role Selection
-- E-commerce вопросы → _PROMPTS/_ROLES/Head_of_E-Commerce.md
-- Планирование и задачи → _PROMPTS/_ROLES/Project_Manager.md
+- E-commerce вопросы → `/ecom-manager` (роль: `.claude/skills/ecom-manager/references/role.md`)
+- Планирование и задачи → `/project-manager` (роль: `.claude/skills/project-manager/references/role.md`)
 
 ## Project Naming
 Папки проектов именуются `PRJ_<NAME>/` (префикс PRJ_, затем название).

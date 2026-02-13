@@ -21,7 +21,7 @@ E-commerce менеджер или руководитель, который хо
 6. [FACTS.md — хранение фактов](#6-factsmd--хранение-фактов)
 7. [Кросс-референсы и теги](#7-кросс-референсы-и-теги)
 8. [Скиллы (Skills)](#8-скиллы-skills)
-9. [Роли (_PROMPTS/_ROLES/)](#9-роли)
+9. [Роли (встроены в скиллы)](#9-роли)
 10. [Скрипты и автоматизация](#10-скрипты-и-автоматизация)
 11. [Бэклог задач](#11-бэклог-задач)
 12. [Git и GitHub](#12-git-и-github)
@@ -84,7 +84,7 @@ git init
 ### Шаг 3: Создай базовую структуру
 
 ```bash
-mkdir -p backlog scripts _PROMPTS/_ROLES .claude/skills .claude/rules
+mkdir -p backlog scripts .claude/skills .claude/rules
 ```
 
 ### Шаг 4: Создай .gitignore
@@ -128,11 +128,7 @@ my-ecom-repo/
 │   │   └── error-learning.md
 │   └── memory/                  # Автопамять (между сессиями)
 │       └── MEMORY.md
-├── _PROMPTS/
-│   └── _ROLES/                  # Экспертные роли
-│       ├── Head_of_E-Commerce.md
-│       ├── Project_Manager.md
-│       └── README.md
+│   # Экспертные роли встроены в скиллы как references/role.md
 ├── scripts/
 │   ├── backup_to_git.zsh
 │   ├── convert_xlsx_to_md.py
@@ -346,7 +342,7 @@ argument-hint: [задача или тема анализа]
 - `/ecom-manager конкуренты [категория]`
 - `/ecom-manager воронка [данные]`
 
-**Интеграция с ролью:** при вызове скилл подгружает знания из `_PROMPTS/_ROLES/Head_of_E-Commerce.md`.
+**Интеграция с ролью:** при вызове скилл подгружает знания из `references/role.md` (встроена в папку скилла).
 
 ---
 
@@ -410,11 +406,11 @@ argument-hint: [задача или тема анализа]
 
 ---
 
-## 9. Роли (_PROMPTS/_ROLES/)
+## 9. Роли (встроены в скиллы)
 
 Роль — глубокий экспертный контекст. Если скилл — это «что делать», то роль — «кто отвечает».
 
-Claude Code загружает роль, когда тема запроса совпадает с её специализацией. Роли хранятся в `_PROMPTS/_ROLES/`.
+Роли встроены в скиллы как `references/role.md` и загружаются автоматически при вызове скилла.
 
 ### Обязательные роли для e-com менеджера
 
@@ -467,9 +463,9 @@ Claude Code загружает роль, когда тема запроса со
 В CLAUDE.md укажи:
 ```markdown
 ## Role Selection
-- E-commerce вопросы → _PROMPTS/_ROLES/Head_of_E-Commerce.md
-- Планирование и задачи → _PROMPTS/_ROLES/Project_Manager.md
-- Аналитика данных → _PROMPTS/_ROLES/Analyst.md
+- E-commerce вопросы → `/ecom-manager` (роль встроена в скилл)
+- Планирование и задачи → `/project-manager` (роль встроена в скилл)
+- Аналитика данных → создать скилл с ролью аналитика
 ```
 
 Claude Code сам выберет подходящую роль по контексту запроса.
@@ -689,7 +685,7 @@ Claude Code автоматически ведёт файл `.claude/memory/MEMOR
 | Задачи | backlog/backlog.xlsx |
 | Ошибки и уроки | .claude/data/error-log.md |
 | Общие правила | CLAUDE.md + .claude/rules/ |
-| Экспертные знания | _PROMPTS/_ROLES/ |
+| Экспертные знания | .claude/skills/*/references/role.md |
 | Версионирование | Git history |
 
 ---
