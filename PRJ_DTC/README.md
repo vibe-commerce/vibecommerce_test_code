@@ -1,6 +1,6 @@
 # PRJ_DTC — Собственный E-Commerce (D2C)
 
-Last Updated: 2026-02-12
+Last Updated: 2026-02-13
 
 ## Описание
 Проект по развитию собственного интернет-магазина (Direct to Consumer).
