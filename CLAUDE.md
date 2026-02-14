@@ -23,6 +23,7 @@ vibecommerce_test_code/
 ├── documentation/               # Документация по архитектуре и проектам
 ├── PRJ_MARKETPLACE/             # Проект: маркетплейсы
 ├── PRJ_DTC/                     # Проект: собственный e-com
+├── PRJ_PRICING/                 # Проект: управление ценами и репрайсинг
 ├── PRJ_ANALYTICS/               # Проект: аналитика и отчёты
 └── PRJ_DEMO/                    # Проект: демо
 ```
@@ -63,3 +64,9 @@ vibecommerce_test_code/
 - `git rebase`
 - `git reset`
 - `git branch -D`
+
+**GitHub-аккаунт для этого репозитория:** `vibe-commerce`
+Перед push всегда проверяй активный аккаунт (`gh auth status`) и при необходимости переключай:
+```bash
+gh auth switch --user vibe-commerce
+```
