@@ -28,6 +28,7 @@ Last Updated: 2026-02-13
 - [PRJ_DEMO/](PRJ_DEMO/) — демо-проект (финансовые модели, слайды)
 - [PRJ_ВОРОНКА/](PRJ_ВОРОНКА/) — конверсионные воронки, JTBD
 - [PRJ_ВЫБОР_НИШИ/](PRJ_ВЫБОР_НИШИ/) — анализ и выбор ниши на маркетплейсах
+- [PRJ_PRICING/](PRJ_PRICING/) — управление ценами, репрайсинг, эластичность спроса
 
 ### Управление
 
@@ -51,7 +52,7 @@ Last Updated: 2026-02-13
 
 1. Открой Claude Code в этой папке
 2. Он прочитает `CLAUDE.md` и сразу знает контекст
-3. Используй скиллы: `/ecom-manager`, `/project-manager`, `/excel-worker`, `/backup`
+3. Используй скиллы: `/ecom-manager`, `/project-manager`, `/excel-worker`, `/price-elasticity`, `/backup`
 
 ## Связанные ресурсы
 
