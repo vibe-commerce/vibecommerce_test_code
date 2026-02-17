@@ -10,6 +10,7 @@ __pycache__/
 .venv/
 *.tmp
 node_modules/
+.~lock.*
 
 # Персональные данные клиентов
 **/client_data/
