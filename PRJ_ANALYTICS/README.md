@@ -17,8 +17,17 @@ PRJ_ANALYTICS/
     ├── check_limit.py        # Проверка API
     ├── analyze_sku.py        # Анализ товара по ID
     ├── analyze_category.py   # Анализ категории
-    └── explore_ym.py         # Исследование YM-эндпоинтов
+    ├── explore_ym.py         # Исследование YM-эндпоинтов
+    ├── research_sleep.py     # Исследование рынка товаров для сна
+    └── reports/              # Отчёты исследований
+        └── sleep_2026-02-20.md
 ```
+
+## Исследования рынка
+
+| Дата | Ниша | МП | Объём рынка (30 дн) | Отчёт |
+|---|---|---|---|---|
+| 2026-02-20 | Товары для сна | WB, Ozon | ~17.5 млрд руб. | [reports/sleep_2026-02-20.md](mpstats/reports/sleep_2026-02-20.md) |
 
 ## Связанные проекты
 - [REF: PRJ_MARKETPLACE/FACTS.md] — метрики маркетплейсов

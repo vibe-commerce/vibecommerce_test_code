@@ -50,6 +50,21 @@ uv run --with httpx,python-dotenv PRJ_ANALYTICS/mpstats/explore_ym.py
 uv run --with httpx,python-dotenv PRJ_ANALYTICS/mpstats/explore_ym.py --item 12345
 ```
 
+### `research_sleep.py` — исследование рынка товаров для сна
+```bash
+# Полный анализ WB + Ozon → Excel + JSON + консоль
+uv run --with httpx,python-dotenv,openpyxl PRJ_ANALYTICS/mpstats/research_sleep.py
+
+# Только WB
+uv run --with httpx,python-dotenv,openpyxl PRJ_ANALYTICS/mpstats/research_sleep.py --platforms wb
+
+# Только показать категории (без API-запросов)
+uv run --with httpx,python-dotenv PRJ_ANALYTICS/mpstats/research_sleep.py --discover
+
+# Другой период (60 дней)
+uv run --with httpx,python-dotenv,openpyxl PRJ_ANALYTICS/mpstats/research_sleep.py --days 60
+```
+
 ## Структура
 
 ```
@@ -61,7 +76,12 @@ mpstats/
 ├── check_limit.py       # Проверка лимитов API
 ├── analyze_sku.py       # Анализ товара по ID
 ├── analyze_category.py  # Анализ категории
-└── explore_ym.py        # Исследование YM-эндпоинтов
+├── explore_ym.py        # Исследование YM-эндпоинтов
+├── research_sleep.py    # Исследование рынка товаров для сна
+├── sleep_market_research.xlsx  # Результат: Excel-отчёт
+├── sleep_market_research.json  # Результат: JSON-сводка
+└── reports/             # Отчёты исследований
+    └── sleep_2026-02-20.md     # Отчёт: товары для сна
 ```
 
 ## Зависимости
@@ -74,8 +94,18 @@ openpyxl>=3.1      # Excel-экспорт (опционально)
 
 Не требуют установки — `uv run --with` подтягивает на лету.
 
+## Как провести новое исследование рынка
+
+1. Скопируй `research_sleep.py` → `research_{тема}.py`
+2. Замени `SLEEP_CATEGORIES` на категории для своей ниши (найди через `client.get_categories_tree()`)
+3. Запусти: `uv run --with httpx,python-dotenv,openpyxl PRJ_ANALYTICS/mpstats/research_{тема}.py`
+4. Задокументируй результат в `reports/{тема}_{дата}.md`
+
+Подробная инструкция: [REF: .claude/skills/mpstats-research/SKILL.md]
+
 ## Связанные ресурсы
 
 - [REF: .env.example] — шаблон переменных окружения
-- [REF: .claude/skills/mpstats-analyst/SKILL.md] — скилл для Claude
+- [REF: .claude/skills/mpstats-analyst/SKILL.md] — скилл анализа товара/категории
+- [REF: .claude/skills/mpstats-research/SKILL.md] — скилл исследования рынка
 - [REF: PLAN.md] — детальный план и справка по API

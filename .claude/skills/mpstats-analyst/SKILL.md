@@ -63,3 +63,7 @@ uv run --with httpx,python-dotenv PRJ_ANALYTICS/mpstats/explore_ym.py --item 123
 - `PRJ_ANALYTICS/mpstats/client.py` — HTTP-клиент MPStats API
 - `PRJ_ANALYTICS/mpstats/models.py` — модели данных
 - `PRJ_ANALYTICS/mpstats/PLAN.md` — план интеграции и справка по API
+
+## Связанные скиллы
+
+- `/mpstats-research` — исследование рынка (несколько категорий на нескольких МП, сводный отчёт)
