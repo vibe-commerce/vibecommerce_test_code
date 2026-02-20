@@ -40,7 +40,7 @@ Last Updated: 2026-02-13
 
 - [CLAUDE.md](CLAUDE.md) — главная инструкция
 - [AGENTS.md](AGENTS.md) — конфигурация агентов
-- `.claude/skills/` — скиллы + экспертные роли (ecom-manager, project-manager, excel-worker, backup)
+- `.claude/skills/` — скиллы + экспертные роли (ecom-manager, project-manager, excel-worker, mpstats-analyst, backup)
 - `.claude/rules/` — автоматически загружаемые правила (error-learning, auto-backup)
 
 ### Прочее
@@ -52,7 +52,7 @@ Last Updated: 2026-02-13
 
 1. Открой Claude Code в этой папке
 2. Он прочитает `CLAUDE.md` и сразу знает контекст
-3. Используй скиллы: `/ecom-manager`, `/project-manager`, `/excel-worker`, `/price-elasticity`, `/backup`
+3. Используй скиллы: `/ecom-manager`, `/project-manager`, `/excel-worker`, `/price-elasticity`, `/mpstats-analyst`, `/backup`
 
 ## Связанные ресурсы
 

@@ -1,7 +1,7 @@
 # План интеграции MPStats API
 
-**Статус:** DRAFT — на ревью
-**Дата:** 2026-02-19
+**Статус:** IMPLEMENTED — код готов, требуется API-ключ для тестирования
+**Дата:** 2026-02-20
 **Источник:** kolos_code (`src/app/clients/mpstats.py` + сервисный слой), MPStats API docs
 
 ---
@@ -42,18 +42,18 @@ PRJ_ANALYTICS/
 | # | Действие | Файл | Статус |
 |---|----------|------|--------|
 | 1.1 | Создать папку `PRJ_ANALYTICS/mpstats/` | — | DONE |
-| 1.2 | Добавить `MPSTATS_API_KEY` в `.env` | `.env` | TODO |
-| 1.3 | Создать `.env.example` с шаблоном (без секретов) | `.env.example` | TODO |
+| 1.2 | Добавить `MPSTATS_API_KEY` в `.env` | `.env` | TODO (требуется ключ) |
+| 1.3 | Создать `.env.example` с шаблоном (без секретов) | `.env.example` | DONE |
 
 ### Этап 2. HTTP-клиент (ядро)
 
 | # | Действие | Файл | Статус |
 |---|----------|------|--------|
-| 2.1 | Портировать `MPStatsClient` — синхронная версия на `httpx` | `client.py` | TODO |
-| 2.2 | Retry 3x, exponential backoff (1s → 2s → 4s) | — | TODO |
-| 2.3 | Rate-limit: обработка 429 с Retry-After | — | TODO |
-| 2.4 | Заголовок авторизации: `X-Mpstats-TOKEN` | — | TODO |
-| 2.5 | Параметр `platform` в методах (`oz`, `wb`, `ym`) для выбора prefix | — | TODO |
+| 2.1 | Портировать `MPStatsClient` — синхронная версия на `httpx` | `client.py` | DONE |
+| 2.2 | Retry 3x, exponential backoff (1s → 2s → 4s) | — | DONE |
+| 2.3 | Rate-limit: обработка 429 с Retry-After | — | DONE |
+| 2.4 | Заголовок авторизации: `X-Mpstats-TOKEN` | — | DONE |
+| 2.5 | Параметр `platform` в методах (`oz`, `wb`, `ym`) для выбора prefix | — | DONE |
 
 **Подход к мультиплатформенности:**
 Клиент один (`MPStatsClient`), но каждый метод принимает `platform: str = "oz"`. Внутри метод подставляет нужный prefix (`/oz/`, `/wb/`, `/ym/`). Структура эндпоинтов у Ozon и WB одинаковая — отличается только prefix.
@@ -103,9 +103,9 @@ PRJ_ANALYTICS/
 
 | # | Действие | Файл | Статус |
 |---|----------|------|--------|
-| 3.1 | `ItemSummary` — универсальный dataclass с `from_api(data, platform)` | `models.py` | TODO |
-| 3.2 | `NicheContext` — dataclass для контекста категории | `models.py` | TODO |
-| 3.3 | `CategoryMetrics` — метрики категории (HHI, тренды) | `models.py` | TODO |
+| 3.1 | `ItemSummary` — универсальный dataclass с `from_api(data, platform)` | `models.py` | DONE |
+| 3.2 | `NicheContext` — dataclass для контекста категории | `models.py` | DONE |
+| 3.3 | `CategoryMetrics` — метрики категории (тренды, концентрация) | `models.py` | DONE |
 
 **Подход:** Модели платформо-независимые. Маппинг полей API → модель происходит в `from_api()` с учётом platform. Разные маркетплейсы возвращают похожие данные, но с разными именами полей.
 
@@ -126,10 +126,10 @@ PRJ_ANALYTICS/
 
 | # | Действие | Файл | Статус |
 |---|----------|------|--------|
-| 4.1 | Анализ товара по ID — сводка + рыночный контекст | `analyze_sku.py` | TODO |
-| 4.2 | Анализ категории — топ товары, выручка, тренды | `analyze_category.py` | TODO |
-| 4.3 | Проверка лимитов API | `check_limit.py` | TODO |
-| 4.4 | Исследование эндпоинтов Яндекс Маркет | `explore_ym.py` | TODO |
+| 4.1 | Анализ товара по ID — сводка + рыночный контекст | `analyze_sku.py` | DONE |
+| 4.2 | Анализ категории — топ товары, выручка, тренды | `analyze_category.py` | DONE |
+| 4.3 | Проверка лимитов API | `check_limit.py` | DONE |
+| 4.4 | Исследование эндпоинтов Яндекс Маркет | `explore_ym.py` | DONE |
 
 **Формат запуска:**
 ```bash
@@ -162,17 +162,17 @@ uv run --with httpx,python-dotenv,openpyxl PRJ_ANALYTICS/mpstats/explore_ym.py
 
 | # | Действие | Файл | Статус |
 |---|----------|------|--------|
-| 5.1 | Создать скилл `mpstats-analyst` | `.claude/skills/mpstats-analyst/` | TODO |
-| 5.2 | Триггеры: mpstats, аналитика ozon/wb/ym, анализ товара, анализ категории | — | TODO |
+| 5.1 | Создать скилл `mpstats-analyst` | `.claude/skills/mpstats-analyst/` | DONE |
+| 5.2 | Триггеры: mpstats, аналитика ozon/wb/ym, анализ товара, анализ категории | — | DONE |
 
 ### Этап 6. Документация
 
 | # | Действие | Файл | Статус |
 |---|----------|------|--------|
-| 6.1 | README для mpstats | `PRJ_ANALYTICS/mpstats/README.md` | TODO |
-| 6.2 | Обновить README проекта PRJ_ANALYTICS | `PRJ_ANALYTICS/README.md` | TODO |
-| 6.3 | Обновить корневой README — навигация | `README.md` | TODO |
-| 6.4 | Обновить CLAUDE.md — переменная MPSTATS_API_KEY | `CLAUDE.md` | TODO |
+| 6.1 | README для mpstats | `PRJ_ANALYTICS/mpstats/README.md` | DONE |
+| 6.2 | Обновить README проекта PRJ_ANALYTICS | `PRJ_ANALYTICS/README.md` | DONE |
+| 6.3 | Обновить корневой README — навигация | `README.md` | DONE |
+| 6.4 | Обновить CLAUDE.md — переменная MPSTATS_API_KEY | `CLAUDE.md` | DONE |
 
 ---
 

@@ -36,6 +36,10 @@ vibecommerce_test_code/
 ## Role Selection
 - E-commerce вопросы → `/ecom-manager` (роль: `.claude/skills/ecom-manager/references/role.md`)
 - Планирование и задачи → `/project-manager` (роль: `.claude/skills/project-manager/references/role.md`)
+- Аналитика через MPStats API → `/mpstats-analyst` (Ozon, WB, YM)
+
+## Environment Variables
+- `MPSTATS_API_KEY` — ключ MPStats API (в `.env`, шаблон в `.env.example`)
 
 ## Project Naming
 Папки проектов именуются `PRJ_<NAME>/` (префикс PRJ_, затем название).
