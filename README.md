@@ -40,7 +40,7 @@ Last Updated: 2026-02-20
 
 - [CLAUDE.md](CLAUDE.md) — главная инструкция
 - [AGENTS.md](AGENTS.md) — конфигурация агентов
-- `.claude/skills/` — скиллы + экспертные роли (ecom-manager, project-manager, excel-worker, mpstats-analyst, backup)
+- `.claude/skills/` — скиллы + экспертные роли (ecom-manager, project-manager, excel-worker, mpstats-analyst, seo-audit, seo-content, seo-positions, seo-research, backup)
 - `.claude/rules/` — автоматически загружаемые правила (error-learning, auto-backup)
 
 ### Скиллы (команды Claude Code)
@@ -85,6 +85,32 @@ Last Updated: 2026-02-20
 - Excel-экспорт (листы: Сводка, Товары, Бренды, Продавцы)
 - Markdown-отчёт с выводами и рекомендациями
 
+**`/seo-audit`** — SEO + AEO аудит сайта:
+- Технический SEO: robots.txt, sitemap, Core Web Vitals, мета-теги
+- On-page SEO: заголовки, контент, внутренние ссылки, изображения
+- AEO: доступность для AI-краулеров, Schema.org JSON-LD
+- Авто-определение фреймворка (Astro, Next.js, Hugo, HTML)
+- Скоринг с рекомендациями и готовой разметкой
+
+**`/seo-content`** — контент и ключевые слова:
+- Подбор ключевых слов через веб-поиск (без платных API)
+- Контент-брифы и редакционные планы
+- Анализ SERP-конкурентов по ключевому запросу
+- Кластеризация ключей по интенту
+- Оптимизация существующего контента
+
+**`/seo-positions`** — мониторинг позиций:
+- Проверка позиций в Google и Яндекс
+- Yandex XML API + Google Search Console
+- Сравнение с историей, тренды (стрелки)
+- Отчёт в Markdown с рекомендациями
+
+**`/seo-research`** — конкурентное SEO-исследование:
+- DataForSEO API: сбор ключей, объёмы, сложность
+- Кластеризация ключей (эмбеддинги + HDBSCAN)
+- Стратегические скоры по кластерам
+- Маппинг кластеров на URL-структуру
+
 **`/backup`** — бэкап в GitHub:
 - Коммит и пуш всех изменений с осмысленным комментарием
 - Автоформирование commit message по diff
@@ -100,7 +126,7 @@ Last Updated: 2026-02-20
 
 1. Открой Claude Code в этой папке
 2. Он прочитает `CLAUDE.md` и сразу знает контекст
-3. Используй скиллы: `/ecom-manager`, `/project-manager`, `/excel-worker`, `/price-elasticity`, `/mpstats-analyst`, `/mpstats-research`, `/backup`
+3. Используй скиллы: `/ecom-manager`, `/project-manager`, `/excel-worker`, `/price-elasticity`, `/mpstats-analyst`, `/mpstats-research`, `/seo-audit`, `/seo-content`, `/seo-positions`, `/seo-research`, `/backup`
 
 ## Связанные ресурсы
 
