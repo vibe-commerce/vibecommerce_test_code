@@ -1,0 +1,43 @@
+# MCP Servers — единый источник правды для Claude Code и OpenAI Codex.
+#
+# Генератор `scripts/sync-agents-config.sh` создаст:
+#   - .claude/.mcp.json (для Claude Code)
+#   - .codex/.mcp.toml (для OpenAI Codex)
+#
+# При добавлении/удалении MCP — правь только этот файл, потом запусти `make sync-agents`.
+
+version: 1
+
+servers:
+  context7:
+    description: "Актуальная документация библиотек и SDK"
+    plugin: "context7@claude-plugins-official"  # Claude plugin
+    codex:
+      type: "http"
+      url: "https://mcp.context7.com"
+      auth: "anonymous"  # или API-key через env
+    claude:
+      builtin: true  # включен в Claude через enabledPlugins
+
+  playwright:
+    description: "Playwright MCP — браузерная автоматизация для QA"
+    plugin: "playwright@claude-plugins-official"
+    codex:
+      type: "stdio"
+      command: "npx"
+      args: ["-y", "@playwright/mcp"]
+    claude:
+      builtin: true
+
+# Будущие MCP-серверы добавляй сюда. Примеры:
+#
+#   github:
+#     description: "GitHub API через MCP"
+#     codex:
+#       type: "stdio"
+#       command: "github-mcp"
+#     claude:
+#       config: { command: "github-mcp" }
+#
+#   notion:
+#     ...

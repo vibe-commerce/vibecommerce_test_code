@@ -1,0 +1,131 @@
+/*
+ * Theme: SLOVO — Editorial Brutalism
+ * Style: Editorial / Cream + Deep Forest + Sage Accent / Sharp corners
+ * Source: /Users/vadimbakanov/Documents/_CODE/SLOVO_code/design-system/tailwind.config.js
+ * Source: /Users/vadimbakanov/Documents/_CODE/SLOVO_code/_specs/design/3-SLOVO-design-principles.json
+ * Font: Space Grotesk (SIL OFL 1.1) + JetBrains Mono (SIL OFL 1.1) + Material Symbols (Apache 2.0)
+ *
+ * Use cases: editorial / контент / журналы / медиа / блоги / читалки.
+ *
+ * Принципы:
+ * 1. Text is the primary interface — иерархия через шрифт, не через цвет.
+ * 2. High contrast — глубокий лесной против кремового.
+ * 3. Utilitarian aesthetics — sharp corners (2px), минимальные тени.
+ * 4. Accents reserved — sage только для CTA и ключевых индикаторов.
+ */
+
+/* ===== Fonts ===== */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300..700,0..1,-50..200');
+
+:root {
+  --font-sans: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, 'Consolas', monospace;
+
+  /* Brutalism = острые углы */
+  --radius-sm: 2px;
+  --radius-md: 2px;
+  --radius-lg: 4px;
+  --radius-pill: 9999px;
+}
+
+/* ===== Light theme (signature look) ===== */
+:root,
+[data-theme="light"] {
+  --bg:           #E8E2D6;   /* cream */
+  --surface:      rgba(255, 255, 255, 0.4);
+  --surface-2:    #D9D1C2;   /* cream-dark */
+  --surface-3:    #FFFFFF;
+
+  --border:       rgba(34, 34, 34, 0.2);
+  --border-dim:   rgba(34, 34, 34, 0.1);
+
+  --text:         #222222;   /* forest */
+  --text-dim:     rgba(34, 34, 34, 0.8);
+  --text-muted:   rgba(34, 34, 34, 0.4);
+
+  --accent:       #BC412B;   /* sage */
+  --accent-hover: #D1563E;
+  --accent-soft:  rgba(188, 65, 43, 0.1);
+  --on-accent:    #FFFFFF;
+
+  --success:      #5A7A3E;
+  --warning:      #C68A1F;
+  --danger:       #9A2A2A;
+  --info:         #3E5A7A;
+
+  --shadow-sm: 0 1px 0 rgba(34, 34, 34, 0.15);
+  --shadow-md: 0 2px 0 rgba(34, 34, 34, 0.2);
+  --shadow-lg: 0 4px 0 rgba(34, 34, 34, 0.25);
+}
+
+/* ===== Dark theme (inverted Editorial Brutalism) ===== */
+[data-theme="dark"] {
+  --bg:           #1A1815;   /* deep cream-inverted */
+  --surface:      #252320;
+  --surface-2:    #2E2C28;
+  --surface-3:    #3A3833;
+
+  --border:       rgba(232, 226, 214, 0.2);
+  --border-dim:   rgba(232, 226, 214, 0.1);
+
+  --text:         #E8E2D6;   /* cream */
+  --text-dim:     rgba(232, 226, 214, 0.75);
+  --text-muted:   rgba(232, 226, 214, 0.4);
+
+  --accent:       #E55A3F;   /* brighter sage for dark bg */
+  --accent-hover: #FF6F50;
+  --accent-soft:  rgba(229, 90, 63, 0.15);
+  --on-accent:    #1A1815;
+
+  --success:      #7FA85C;
+  --warning:      #E0A33A;
+  --danger:       #D04545;
+  --info:         #5A7BA8;
+
+  --shadow-sm: 0 1px 0 rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 2px 0 rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 4px 0 rgba(0, 0, 0, 0.6);
+}
+
+/* ===== System-preference fallback (no JS) ===== */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:           #1A1815;
+    --surface:      #252320;
+    --surface-2:    #2E2C28;
+    --surface-3:    #3A3833;
+    --border:       rgba(232, 226, 214, 0.2);
+    --border-dim:   rgba(232, 226, 214, 0.1);
+    --text:         #E8E2D6;
+    --text-dim:     rgba(232, 226, 214, 0.75);
+    --text-muted:   rgba(232, 226, 214, 0.4);
+    --accent:       #E55A3F;
+    --accent-hover: #FF6F50;
+    --accent-soft:  rgba(229, 90, 63, 0.15);
+    --on-accent:    #1A1815;
+    --success:      #7FA85C;
+    --warning:      #E0A33A;
+    --danger:       #D04545;
+    --info:         #5A7BA8;
+  }
+}
+
+/* ===== Editorial-specific globals ===== */
+body {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+h1 { letter-spacing: -0.04em; line-height: 0.9; }
+h2, h3 { letter-spacing: -0.02em; }
+
+.label,
+[data-role="label"] {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}

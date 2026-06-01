@@ -1,0 +1,107 @@
+/*
+ * Theme: Geist Neutral — Vercel-style baseline
+ * Style: Neutral grayscale + single blue accent / B2B SaaS-friendly
+ * Source: Inspired by Vercel Geist Design System (https://vercel.com/geist)
+ *         and shadcn/ui defaults. Grayscale based on Tailwind neutral.
+ * Font: Inter (SIL OFL 1.1) + JetBrains Mono (SIL OFL 1.1) + Material Symbols (Apache 2.0)
+ *
+ * Use cases: B2B SaaS, dashboards, admin panels, нейтральный универсальный
+ *            стиль для проектов где не нужна сильная брендовая идентичность.
+ */
+
+/* ===== Fonts ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300..700,0..1,-50..200');
+
+:root {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, 'Consolas', monospace;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-pill: 9999px;
+}
+
+/* ===== Light theme ===== */
+:root,
+[data-theme="light"] {
+  --bg:           #FFFFFF;
+  --surface:      #FAFAFA;
+  --surface-2:    #F4F4F5;
+  --surface-3:    #E4E4E7;
+
+  --border:       #E4E4E7;
+  --border-dim:   #F4F4F5;
+
+  --text:         #09090B;
+  --text-dim:     #52525B;
+  --text-muted:   #71717A;
+
+  --accent:       #0070F3;   /* Geist blue */
+  --accent-hover: #0061D5;
+  --accent-soft:  rgba(0, 112, 243, 0.08);
+  --on-accent:    #FFFFFF;
+
+  --success:      #16A34A;
+  --warning:      #D97706;
+  --danger:       #DC2626;
+  --info:         #0EA5E9;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.10);
+}
+
+/* ===== Dark theme ===== */
+[data-theme="dark"] {
+  --bg:           #09090B;
+  --surface:      #18181B;
+  --surface-2:    #27272A;
+  --surface-3:    #3F3F46;
+
+  --border:       #27272A;
+  --border-dim:   #18181B;
+
+  --text:         #FAFAFA;
+  --text-dim:     #A1A1AA;
+  --text-muted:   #71717A;
+
+  --accent:       #3B9EFF;
+  --accent-hover: #5BB1FF;
+  --accent-soft:  rgba(59, 158, 255, 0.12);
+  --on-accent:    #09090B;
+
+  --success:      #22C55E;
+  --warning:      #F59E0B;
+  --danger:       #EF4444;
+  --info:         #38BDF8;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.6);
+}
+
+/* ===== System-preference fallback (no JS) ===== */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:           #09090B;
+    --surface:      #18181B;
+    --surface-2:    #27272A;
+    --surface-3:    #3F3F46;
+    --border:       #27272A;
+    --border-dim:   #18181B;
+    --text:         #FAFAFA;
+    --text-dim:     #A1A1AA;
+    --text-muted:   #71717A;
+    --accent:       #3B9EFF;
+    --accent-hover: #5BB1FF;
+    --accent-soft:  rgba(59, 158, 255, 0.12);
+    --on-accent:    #09090B;
+    --success:      #22C55E;
+    --warning:      #F59E0B;
+    --danger:       #EF4444;
+    --info:         #38BDF8;
+  }
+}

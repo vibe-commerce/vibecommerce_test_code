@@ -1,0 +1,12 @@
+# Generated from _shared/mcp.yaml — do not edit manually
+
+
+[mcp_servers.context7]
+type = "http"
+url = "https://mcp.context7.com"
+auth = "anonymous"
+
+[mcp_servers.playwright]
+type = "stdio"
+command = "npx"
+args = ["-y", "@playwright/mcp"]

@@ -1,0 +1,42 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:docs.anthropic.com)"
+    ]
+  },
+  "enabledPlugins": {
+    "context7@claude-plugins-official": true,
+    "agent-teams@ilia-izmailov-plugins": true,
+    "frontend-design@claude-plugins-official": true,
+    "claude-md-management@claude-plugins-official": true,
+    "think-through@ilia-izmailov-plugins": true,
+    "pr-review-toolkit@claude-plugins-official": true,
+    "playground@claude-plugins-official": true,
+    "vibe-audit@ilia-izmailov-plugins": true,
+    "feature-dev@claude-plugins-official": true,
+    "code-simplifier@claude-plugins-official": true,
+    "playwright@claude-plugins-official": true
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'INPUT=$(cat); FILE=$(echo \"$INPUT\" | jq -r \".tool_input.file_path\"); if [[ \"$FILE\" == *.py ]]; then ruff check --fix \"$FILE\" 2>&1; fi'"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/memory-bank-check.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

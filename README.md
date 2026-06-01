@@ -2,170 +2,145 @@
   <a href="https://vibecommerce.ru/course?r=gh">
     <img src="https://vibecommerce.ru/vibe-commerce-logo.png" alt="Вайб-Коммерс" width="80">
   </a>
-  <h3>Тестовый репозиторий для трекинг-курса «Вайб-Коммерс»</h3>
+  <h3>Шаблонный стартер для селлеров на маркетплейсах и e-commerce</h3>
   <a href="https://vibecommerce.ru/course?r=gh">
-    <img src="https://img.shields.io/badge/Подробнее_→-00BCD4?style=for-the-badge&logoColor=white" alt="Подробнее">
+    <img src="https://img.shields.io/badge/Курс_Вайб--Коммерс_→-00BCD4?style=for-the-badge&logoColor=white" alt="Курс">
   </a>
 </div>
 
 ---
 
-# Vibe-Commerce — Рабочее пространство E-Commerce менеджера
+# vibecommerce_test_code
 
-Last Updated: 2026-02-20
+Last Updated: 2026-05-29
+Версия шаблона: **0.3.0**
 
-## Описание
+## Что это
 
-Структурированный репозиторий для работы с Claude Code: проекты, аналитика, бэклог задач, автоматизация.
+Шаблонный стартер для студентов курса «Вайб-Коммерс» и любого селлера на
+маркетплейсах / e-commerce. Форкается под каждый проект селлера — даёт
+готовые методические модули, AI-агентов и workflow для работы с Claude Code
+и OpenAI Codex.
 
-## Структура
+**Принцип №0:** в репо нет ни одного байта персональных или клиентских
+данных. Только методики, синтетические демо-датасеты, открытые отраслевые
+выгрузки (MPStats research).
 
-### Проекты
+## Тиринг
 
-- [PRJ_MARKETPLACE/](PRJ_MARKETPLACE/) — работа с маркетплейсами (WB, OZON, и др.)
-- [PRJ_DTC/](PRJ_DTC/) — собственный e-commerce (D2C)
-- [PRJ_ANALYTICS/](PRJ_ANALYTICS/) — аналитика и отчёты
-- [PRJ_DEMO/](PRJ_DEMO/) — демо-проект (финансовые модели, слайды)
-- [PRJ_ВОРОНКА/](PRJ_ВОРОНКА/) — конверсионные воронки, JTBD
-- [PRJ_ВЫБОР_НИШИ/](PRJ_ВЫБОР_НИШИ/) — анализ и выбор ниши на маркетплейсах
-- [PRJ_PRICING/](PRJ_PRICING/) — управление ценами, репрайсинг, эластичность спроса
+- **FREE (этот репо)** — базовая методика + workflow + onboarding
+- **VIP** (`vibecommerce_vip_code`, private) — углублённые методологии,
+  платные API (MPStats Pro, Ahrefs, Semrush, DaData), полные промпт-наборы
 
-### Управление
+Hook'и FREE→VIP помечены `📈 Углубление в vibecommerce_vip_code`.
 
-- [backlog/](backlog/) — бэклог задач
-- [scripts/](scripts/) — утилиты (бэкап, конвертация, отчёты)
-- [documentation/](documentation/) — документация по архитектуре и проектам
+## Точки входа
 
-### Настройки Claude Code
+| Что нужно | Куда смотреть |
+|-----------|---------------|
+| Инструкции для AI (Claude Code) | [CLAUDE.md](CLAUDE.md) |
+| Инструкции для AI (OpenAI Codex) | [AGENTS.md](AGENTS.md) |
+| Текущий фокус сессии | [AGENDA.md](AGENDA.md) |
+| Сдача сессии | [HANDOFF.md](HANDOFF.md) (через `/handoff`) |
+| Стабильные факты | [FACTS.md](FACTS.md) |
+| Стратегия / фазы | [ROADMAP.md](ROADMAP.md) |
+| Текущий статус | [_status/PROJECT_STATUS.md](_status/PROJECT_STATUS.md) |
+| Версия | [VERSION](VERSION) |
 
-- [CLAUDE.md](CLAUDE.md) — главная инструкция
-- [AGENTS.md](AGENTS.md) — конфигурация агентов
-- `.claude/skills/` — скиллы + экспертные роли (ecom-manager, project-manager, excel-worker, mpstats-analyst, seo-audit, seo-content, seo-positions, seo-research, backup)
-- `.claude/rules/` — автоматически загружаемые правила (error-learning, auto-backup)
+## Навигация по задачам
 
-### Скиллы (команды Claude Code)
+| Тема задачи | Что читать |
+|-------------|-----------|
+| Как работать (workflow) | [_practices/00-WORKFLOW.md](_practices/00-WORKFLOW.md) |
+| Методические модули (порядок 01→07) | [_modules/README.md](_modules/README.md) |
+| Рабочая зона студента | [my-project/README.md](my-project/README.md) |
+| Knowledge base (marketplaces / legal / suppliers) | [_knowledge/README.md](_knowledge/README.md) |
+| Промпты (роли + JTBD) | [_prompts/README.md](_prompts/README.md) |
+| Спецификации (templates) | [_specs/README.md](_specs/README.md) |
+| История релизов | [_changelogs/CHANGELOG.md](_changelogs/CHANGELOG.md) |
+| Идеи / брифы / планы | [backlog/README.md](backlog/README.md) |
+| Skills (slash-команды) | [.claude/skills/README.md](.claude/skills/README.md) |
+| Sub-агенты | [.claude/agents/README.md](.claude/agents/README.md) |
+| Глобальные external агенты/скиллы | [.claude/EXTERNAL-TOOLS.md](.claude/EXTERNAL-TOOLS.md) |
+| Приватные данные (gitignored) | [_private/README.md](_private/README.md) |
 
-**`/ecom-manager`** — E-commerce эксперт:
-- Анализ карточки товара (заголовок, фото, описание, отзывы, SEO)
-- Юнит-экономика: себестоимость → комиссия → логистика → маржа → ROI
-- Конкурентный анализ: цены, позиции, рейтинги, контент
-- Анализ воронки: трафик → показы → клики → корзина → заказ → выкуп
-- Фреймворки: JTBD, метрики-пирамида (GMV → Orders → AOV → CR → Traffic)
+## AI-инфраструктура
 
-**`/project-manager`** — управление проектами:
-- Бэклог задач (SSoT: `backlog/Backlog.txt`)
-- Спринт-планирование по capacity
-- Приоритизация (Эйзенхауэр, ICE scoring, value vs effort)
-- Декомпозиция задач на конкретные шаги с критериями
-- Статус-отчёты: что сделано, что в работе, блокеры, риски
+```
+.claude/                        # Claude Code-specific
+├── skills/                     # Slash-команды
+├── agents/                     # Sub-агенты
+├── rules/                      # Поведенческие правила
+├── hooks/                      # Bash-хуки
+└── settings.json               # Permissions, hooks, plugins
 
-**`/excel-worker`** — работа с Excel:
-- Чтение, анализ, модификация `.xlsx` / `.csv`
-- Юнит-экономика WB (СПП, комиссии, логистика, маржа)
-- Юнит-экономика Ozon (соинвест, эффективная комиссия, индекс цены)
-- Юнит-экономика DTC (CAC, LTV, ROAS, эквайринг)
-- Версионирование файлов: `_vX.Y.xlsx`
+.codex/                         # OpenAI Codex-specific (фаза C)
+.agents/                        # Cross-agent shared skills/subagents (фаза C)
+_shared/                        # Общие инструкции + MCP + hooks (фаза C)
+```
 
-**`/price-elasticity`** — ценовая эластичность спроса:
-- Расчёт эластичности (E) по всем SKU с вариацией цен
-- Определение оптимальной цены для роста объёма / выручки / прибыли
-- 5 графиков в `PRJ_PRICING/reports/`
-- Целевые цены для кратного роста (напр. 2x объёма)
-- Сравнение эластичности между площадками (WB vs Ozon)
+## Информационная архитектура
 
-**`/mpstats-analyst`** — аналитика через [MPStats API](https://mpstats.io/):
-- Анализ товара по ID (Ozon, WB) с контекстом ниши
-- Анализ категории: выручка, продажи, средний чек, тренды
-- Проверка лимитов API, экспорт в Excel
-- Платформы: Ozon, Wildberries, Яндекс Маркет
+```
+backlog/ideas/ → backlog/briefs/ → backlog/plans/ → код → documentation/
+  (что если?)     (стоит ли?)        (как?)
+                       │                  │
+                       ↓                  ↓
+              archive/rejected/   archive/done/
 
-**`/mpstats-research`** — исследование рынка через MPStats:
-- Сводный отчёт: выручка, тренды, топ-товары, бренды, продавцы, концентрация
-- Сравнение нескольких категорий на нескольких маркетплейсах
-- Excel-экспорт (листы: Сводка, Товары, Бренды, Продавцы)
-- Markdown-отчёт с выводами и рекомендациями
+Крупные фичи параллельно: _specs/<feature>/ (tech-spec, user-spec, ADR)
+```
 
-**`/seo-audit`** — SEO + AEO аудит сайта:
-- Технический SEO: robots.txt, sitemap, Core Web Vitals, мета-теги
-- On-page SEO: заголовки, контент, внутренние ссылки, изображения
-- AEO: доступность для AI-краулеров, Schema.org JSON-LD
-- Авто-определение фреймворка (Astro, Next.js, Hugo, HTML)
-- Скоринг с рекомендациями и готовой разметкой
+| Слой | Папка | Главный вопрос | Горизонт |
+|------|-------|----------------|----------|
+| Идеи | `backlog/ideas/` | «А что если?» | дни-недели |
+| Брифы | `backlog/briefs/` | «Стоит ли делать?» | недели |
+| Планы | `backlog/plans/` | «Как делать?» | дни-недели |
+| Архив реализованного | `backlog/archive/done/` | история | годы |
+| Архив отказов | `backlog/archive/rejected/` | почему не пошло | годы |
+| Реализация | `_modules/`, `my-project/` | методика + sandbox студента | месяцы-годы |
+| Факты | `documentation/` | реализованное | месяцы-годы |
+| Релизы | `_changelogs/` | — | годами |
+| Состояние | `_status/` | — | актуально |
+| Приватное | `_private/` (gitignored) | — | бессрочно |
 
-**`/seo-content`** — контент и ключевые слова:
-- Подбор ключевых слов через веб-поиск (без платных API)
-- Контент-брифы и редакционные планы
-- Анализ SERP-конкурентов по ключевому запросу
-- Кластеризация ключей по интенту
-- Оптимизация существующего контента
+📌 **При добавлении / изменении / удалении файлов в любой папке —
+обязательно обнови `README.md` в этой папке.** README — это карта памяти
+проекта. Подробнее → CLAUDE.md, раздел «MEMORY BANK + File Management».
 
-**`/seo-positions`** — мониторинг позиций:
-- Проверка позиций в Google и Яндекс
-- Yandex XML API + Google Search Console
-- Сравнение с историей, тренды (стрелки)
-- Отчёт в Markdown с рекомендациями
+## Git Workflow
 
-**`/seo-research`** — конкурентное SEO-исследование:
-- DataForSEO API: сбор ключей, объёмы, сложность
-- Кластеризация ключей (эмбеддинги + HDBSCAN)
-- Стратегические скоры по кластерам
-- Маппинг кластеров на URL-структуру
+```
+local (рабочая) → push → main (GitHub)
+```
 
-**`/backup`** — бэкап в GitHub:
-- Коммит и пуш всех изменений с осмысленным комментарием
-- Автоформирование commit message по diff
+Только две ветки. Без `dev`/`prod` — это шаблон без боевого деплоя.
 
-Скрипты MPStats: [PRJ_ANALYTICS/mpstats/](PRJ_ANALYTICS/mpstats/) · Требуется `MPSTATS_API_KEY` в `.env`
+## Quick Start (форк-сценарий)
 
-### Прочее
+```bash
+git clone <repo> my-seller-project && cd my-seller-project
+# Заполни {placeholders} в CLAUDE.md, AGENTS.md, FACTS.md, README.md
+make install
+# Открой _modules/README.md — порядок прохождения 01→07
+# Открой my-project/README.md — куда складывать свои данные
+```
 
-- [repo-setup-guide-ecom.md](repo-setup-guide-ecom.md) — гайд по настройке репозитория
-- [VERSION](VERSION) — версия проекта
+📖 Полный гайд по форку → [documentation/00-FORKING-GUIDE.md](documentation/00-FORKING-GUIDE.md)
 
-## Быстрый старт
+## Cross-agent compatibility
 
-1. Открой Claude Code в этой папке
-2. Он прочитает `CLAUDE.md` и сразу знает контекст
-3. Используй скиллы: `/ecom-manager`, `/project-manager`, `/excel-worker`, `/price-elasticity`, `/mpstats-analyst`, `/mpstats-research`, `/seo-audit`, `/seo-content`, `/seo-positions`, `/seo-research`, `/backup`
+Шаблон работает в **обоих** AI-агентах:
+- **Claude Code** — читает `CLAUDE.md` + `.claude/`
+- **OpenAI Codex** — читает `AGENTS.md` (agents.md spec) + `.codex/`
+- Общая часть — `_shared/INSTRUCTIONS.md` (импортируется через `@`)
 
-## Связанные ресурсы
+См. фазу C плана апгрейда + `_specs/codex-compat/` (после реализации).
 
-- [REF: .claude/skills/] — скиллы и экспертные роли
+## Автор
 
-<br/>
+Vadim Bakanov, создатель [Vibe-Commerce](https://vibecommerce.ru)
 
----
+## Лицензия
 
-<br/>
-
-<div align="center">
-  <a href="https://vibecommerce.ru/course?r=gh">
-    <img src="https://vibecommerce.ru/vadim-bakanov-hero.jpg" alt="Вадим Баканов" width="280">
-  </a>
-</div>
-
-<h1 align="center">ВАЙБ-КОММЕРС · Трекинг-курс</h1>
-
-`10 недель до результата` · `10 человек в группе` · `ИИ + нейросети` · `Персональный трекинг 1:1`
-
-<div align="center">
-  <img src="https://vibecommerce.ru/course/mpstats-result-x3-in-12m.png" alt="Рост выручки x3" width="500">
-</div>
-
-<br/>
-
-> **Группа ограничена — максимум 10 человек.** Персональный трекинг, а не массовый поток.
-
-<div align="center">
-  <a href="https://vibecommerce.ru/course?r=gh">
-    <img src="https://img.shields.io/badge/🚀_Записаться_на_курс-00BCD4?style=for-the-badge&logoColor=white" alt="Записаться">
-  </a>
-  &nbsp;&nbsp;
-  <a href="https://t.me/vibecommerce">
-    <img src="https://img.shields.io/badge/Telegram-26A5E4?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram">
-  </a>
-</div>
-
-<p align="center">
-  <sub><a href="https://vibecommerce.ru/course?r=gh">vibecommerce.ru/course</a></sub>
-</p>
+MIT (этот FREE-репо). `vibecommerce_vip_code` — BSL 1.1.

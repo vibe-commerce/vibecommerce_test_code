@@ -1,0 +1,32 @@
+[project]
+name = "{project}"
+version = "0.0.2"
+requires-python = ">=3.11"
+dependencies = [
+    "pyyaml",
+    "httpx",
+    "python-dotenv",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "pytest-asyncio", "ruff", "ipykernel"]
+
+[tool.ruff]
+line-length = 120
+# py312: один демо-скрипт (_modules/05-ads-optimization/funnel_analysis.py)
+# использует f-string-синтаксис 3.12+. Рантайм разработки — 3.12+.
+target-version = "py312"
+
+[tool.ruff.lint.per-file-ignores]
+# Методические/демо-скрипты модулей — учебный код, не продакшн (см. backlog/plans
+# апгрейда). Стилевые правила остаются строгими для тулинга шаблона (scripts/,
+# *_template.py, calc_*), но расслаблены для демонстрационных скриптов в _modules/.
+"_modules/**" = ["F841", "E402", "E702"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+markers = [
+    "e2e: End-to-end tests (may require external services)",
+    "slow: Slow tests (>30s)",
+]

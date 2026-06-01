@@ -1,0 +1,40 @@
+# OpenAI Codex config template для vibecommerce_test_code
+#
+# Скопируй в ~/.codex/config.toml или подкорректируй для project-local.
+
+[project]
+name = "vibecommerce_test_code"
+description = "Шаблонный стартер для селлеров на МП/e-com"
+
+# Каноничные инструкции (что Codex прочитает первым)
+instructions_file = "AGENTS.md"
+memory_file = "_shared/MEMORY.md"
+
+[skills]
+# Папка со skills (симлинки на ../.agents/skills/)
+path = ".codex/skills"
+
+[agents]
+# Sub-агенты (генерируются из ../.agents/subagents/)
+path = ".codex/agents"
+
+[hooks]
+# Hooks (симлинки на ../_shared/hooks/)
+path = ".codex/hooks"
+
+# MCP конфиг генерируется из _shared/mcp.yaml через scripts/sync-agents-config.sh
+# Полный путь: .codex/.mcp.toml (после реализации C7)
+# [mcp]
+# config_file = ".codex/.mcp.toml"
+
+[permissions]
+# Разрешения (опционально, для project-local override)
+allow_web_fetch = [
+  "docs.openai.com",
+  "docs.anthropic.com",
+]
+
+[git]
+# Git workflow: только local + main
+branches = ["local", "main"]
+default_branch = "local"

@@ -1,21 +1,72 @@
-# Секреты
+# Environment
 .env
-*.pem
-credentials.json
+.env.*
+!.env.example
 
-# Системное
+# PRIVATE — единая зона для credentials, PII, рабочих документов
+# Подпапки: secrets/, docs/, meetings/, data/. См. _private/README.md
+# Игнорируем всё содержимое, кроме README (правила «что куда класть»)
+_private/*
+!_private/README.md
+
+# Claude Code local settings
+.claude/settings.local.json
+# Личные заметки разработчика (3-й уровень CLAUDE.md от Anthropic)
+CLAUDE.local.md
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+
+# Node
+node_modules/
+.next/
+dist/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
 .DS_Store
 Thumbs.db
-__pycache__/
-.venv/
-*.tmp
-node_modules/
-.~lock.*
 
-# Персональные данные клиентов
-**/client_data/
-**/personal_data/
+# Credentials
+credentials/
+*.pem
+*.key
 
-# Слишком большие файлы (>100MB)
-*.iso
-*.dmg
+# Logs
+*.log
+logs/
+
+# Data
+data/raw/
+data/processed/
+data/cache/
+
+# Студенческая рабочая зона my-project/ — выгрузки и личные файлы НЕ в git (#86)
+my-project/data/*
+!my-project/data/.gitkeep
+my-project/**/personal-*
+
+# Jupyter
+.ipynb_checkpoints/
+
+# uv
+uv.lock
+
+# Config overrides
+config/local.yaml
+
+# Claude Code runtime artifacts
+.claude/scheduled_tasks.lock
