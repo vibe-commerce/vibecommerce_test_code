@@ -7,7 +7,7 @@
 > (модули + my-project sandbox + тиринг FREE/VIP).
 >
 > Поглощён актуальным планом:
-> [`backlog/plans/2026-05-28-upgrade-test-code-from-best-practices.md`](../../plans/2026-05-28-upgrade-test-code-from-best-practices.md)
+> `backlog/plans/2026-05-28-upgrade-test-code-from-best-practices.md`
 
 ---
 

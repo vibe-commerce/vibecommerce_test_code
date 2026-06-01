@@ -1,11 +1,18 @@
+# name — дефолт шаблона; при форке переименуй под свой проект селлера.
 [project]
-name = "{project}"
-version = "0.0.2"
+name = "vibecommerce-seller-project"
+version = "0.3.1"
 requires-python = ">=3.11"
 dependencies = [
     "pyyaml",
     "httpx",
     "python-dotenv",
+    # Аналитика включённых FREE-модулей (01-07) — нужны для `make run`/скриптов
+    "openpyxl",
+    "pandas",
+    "numpy",
+    "matplotlib",
+    "requests",
 ]
 
 [project.optional-dependencies]
@@ -13,9 +20,9 @@ dev = ["pytest", "pytest-asyncio", "ruff", "ipykernel"]
 
 [tool.ruff]
 line-length = 120
-# py312: один демо-скрипт (_modules/05-ads-optimization/funnel_analysis.py)
-# использует f-string-синтаксис 3.12+. Рантайм разработки — 3.12+.
-target-version = "py312"
+# Контракт совместимости — Python 3.11+ (см. requires-python). Синтаксический
+# скан всех модулей/скриптов проходит под feature_version=(3,11).
+target-version = "py311"
 
 [tool.ruff.lint.per-file-ignores]
 # Методические/демо-скрипты модулей — учебный код, не продакшн (см. backlog/plans

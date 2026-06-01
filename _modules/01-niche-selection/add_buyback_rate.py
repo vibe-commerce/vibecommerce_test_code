@@ -8,6 +8,7 @@
 """
 
 import csv
+import os
 import random
 
 # --- Маппинг: ключевые слова в пути категории → процент выкупа ---
@@ -275,8 +276,10 @@ def add_jitter(rate: int, jitter: int = 3) -> float:
 
 
 def main():
-    input_file = "PRJ_ВЫБОР_НИШИ/OZON - выбор ниши - 12.02.2026.csv"
-    output_file = "PRJ_ВЫБОР_НИШИ/OZON - выбор ниши - с выкупом.csv"
+    # CSV-файлы лежат рядом со скриптом (в папке модуля)
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    input_file = os.path.join(base_dir, "OZON - выбор ниши - 12.02.2026.csv")
+    output_file = os.path.join(base_dir, "OZON - выбор ниши - с выкупом.csv")
 
     random.seed(42)  # для воспроизводимости
 

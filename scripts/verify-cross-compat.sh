@@ -7,10 +7,11 @@
 #   3. CLAUDE.md / AGENTS.md / _shared/INSTRUCTIONS.md существуют
 #   4. _shared/mcp.yaml валидный YAML
 #   5. Все sub-agents в .agents/subagents/ имеют валидный YAML
+#   6. Все generated TOML (.codex/agents/*, .mcp.toml, config.template) парсятся
+#   7. .claude/.mcp.json — валидный JSON
+#   8. Симлинки skills указывают на правильный target
 #
 # Триггер: `make verify-agents` или pre-commit hook.
-#
-# STATUS: stub. Полная реализация — пункт C8 плана.
 
 set -euo pipefail
 
@@ -54,19 +55,66 @@ check ".codex/config.toml.template exists" test -f .codex/config.toml.template
 if [ -d .agents/skills ] && [ "$(ls -A .agents/skills 2>/dev/null)" ]; then
   for skill_dir in .agents/skills/*/; do
     skill_name=$(basename "$skill_dir")
-    check "Symlink .claude/skills/$skill_name" test -L ".claude/skills/$skill_name"
-    check "Symlink .codex/skills/$skill_name" test -L ".codex/skills/$skill_name"
+    rel_target="../../.agents/skills/$skill_name"
+    for base in .claude .codex; do
+      link="$base/skills/$skill_name"
+      if [ -L "$link" ] && [ "$(readlink "$link")" = "$rel_target" ]; then
+        echo "✅ Symlink $link → $rel_target"
+      else
+        echo "❌ Symlink $link (ожидался target $rel_target)"
+        errors=$((errors+1))
+      fi
+    done
   done
 else
   echo "ℹ️  .agents/skills/ пуста — symlink checks пропущены"
 fi
 
-# 5. YAML валидность (если есть python)
+# 5-7. Парсинг всех cross-agent конфигов (YAML / JSON / TOML)
 if command -v python3 >/dev/null; then
-  if python3 -c "import yaml" 2>/dev/null; then
-    check "_shared/mcp.yaml is valid YAML" python3 -c "import yaml; yaml.safe_load(open('_shared/mcp.yaml'))"
+  if python3 - <<'PYEOF'
+import glob
+import json
+import sys
+import tomllib
+
+errors = []
+
+try:
+    import yaml
+    for f in ["_shared/mcp.yaml", *glob.glob(".agents/subagents/*.yaml")]:
+        try:
+            yaml.safe_load(open(f, encoding="utf-8"))
+        except Exception as e:
+            errors.append(f"YAML {f}: {e}")
+except ImportError:
+    print("  ℹ️  PyYAML не установлен — YAML-проверка пропущена")
+
+for f in [*glob.glob(".codex/agents/*.toml"), ".codex/.mcp.toml", ".codex/config.toml.template"]:
+    try:
+        tomllib.load(open(f, "rb"))
+    except FileNotFoundError:
+        pass
+    except Exception as e:
+        errors.append(f"TOML {f}: {e}")
+
+for f in [".claude/.mcp.json"]:
+    try:
+        json.load(open(f, encoding="utf-8"))
+    except FileNotFoundError:
+        pass
+    except Exception as e:
+        errors.append(f"JSON {f}: {e}")
+
+if errors:
+    print("\n".join("  " + e for e in errors))
+    sys.exit(1)
+PYEOF
+  then
+    echo "✅ Все cross-agent конфиги (YAML/JSON/TOML) валидны"
   else
-    echo "ℹ️  PyYAML не установлен, YAML-проверка пропущена"
+    echo "❌ Невалидные cross-agent конфиги (см. выше)"
+    errors=$((errors+1))
   fi
 fi
 

@@ -29,8 +29,8 @@ Tests to write BEFORE implementation:
 - [ ] Criterion 2
 
 ## Context Files
-- [user-spec.md](../user-spec.md)
-- [tech-spec.md](../tech-spec.md)
+- `../user-spec.md` (placeholder — путь к user-spec реальной фичи)
+- `../tech-spec.md` (placeholder — путь к tech-spec реальной фичи)
 
 ## Verification Steps
 

@@ -5,6 +5,39 @@
 Semver правило шаблона (template) — в [CLAUDE.md](../CLAUDE.md) раздел
 «Semver для шаблона vibecommerce_test_code».
 
+## 0.3.1 — 2026-06-02
+
+PATCH-ремонт целостности шаблона по результатам QA-прогона (план:
+`backlog/plans/2026-06-01-fix-template-integrity.md`). Функциональность 0.3.0
+не устанавливалась/частично не загружалась — ремонт без новой методики.
+
+### Fixed
+- `pyproject.toml`: невалидное PEP 508 имя `name = "{project}"` → валидный дефолт
+  `vibecommerce-seller-project`; `make install` и `uv run --with` снова работают
+- Рассинхрон версий: `pyproject` `0.0.2` → `0.3.1` (синхрон с VERSION/CHANGELOG)
+- `ruff target-version` `py312` → `py311`; `funnel_analysis.py` использовал
+  `→` внутри f-string выражений (синтаксис 3.12+) → заменено на литеральную
+  `→`, теперь весь код совместим с заявленным Python 3.11+
+- `Makefile`: убраны ложноположительные `2>/dev/null || echo` из install/lint/test;
+  убран пустой `test-e2e`; добавлен реальный тестовый контур `tests/`
+- Скрипты модуля 05 (`generate_sales_data`, `generate_ads_data`, `abcdx_analysis`,
+  `funnel_analysis`): личные абсолютные пути `/Users/.../PRJ_MARKETPLACE/` →
+  относительный `../data-demo/`; pipeline снова сходится на одной папке
+- `scripts/sync-agents-config.sh`: безопасная TOML-сериализация (экранирование `\`);
+  невалидные `.codex/agents/{test-runner,techdebt-scanner}.toml` теперь парсятся
+- `scripts/verify-cross-compat.sh`: добавлен parse YAML/JSON/TOML + проверка target симлинков
+- Убран заявленный, но отсутствующий `make install-claude-tools` + мёртвые ссылки
+- Мёртвые ссылки на 2 никогда не существовавших плана `2026-05-28-*` — сняты/заменены
+- Прочие битые md-ссылки (`../deploy/`, `../../design-system/` и др.)
+
+### Added
+- Регрессионный контур `tests/` (integrity, module 05 pipeline, CLI smoke)
+- Runtime-зависимости включённых модулей в `pyproject` (openpyxl, pandas, numpy, matplotlib, requests)
+- README во всех важных папках проекта (memory-bank навигация)
+
+### Security
+- `_knowledge/marketplaces/ozon-basics.md`: UUID-подобный пример API-ключа → явный placeholder
+
 ## 0.3.0 — 2026-05-29
 
 MAJOR-апгрейд скелета: миграция к структуре EMPTY_code v0.5.4 + тиринг

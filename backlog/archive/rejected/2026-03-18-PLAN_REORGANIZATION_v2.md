@@ -4,7 +4,7 @@
 >
 > Причина: см. [`2026-03-18-PLAN_REORGANIZATION.md`](2026-03-18-PLAN_REORGANIZATION.md).
 > Поглощён актуальным планом:
-> [`backlog/plans/2026-05-28-upgrade-test-code-from-best-practices.md`](../../plans/2026-05-28-upgrade-test-code-from-best-practices.md)
+> `backlog/plans/2026-05-28-upgrade-test-code-from-best-practices.md`
 
 ---
 

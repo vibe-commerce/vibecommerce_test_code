@@ -119,22 +119,29 @@ with open(md_path, "w") as f:
 print(f"  ✅ Generated: {md_path}")
 
 # .codex/agents/<name>.toml
-toml_path = f".codex/agents/{name}.toml"
-toml_content = f'''# Generated from .agents/subagents/{name}.yaml — do not edit manually
-name = "{name}"
-description = """{desc}"""
-model = "{model}"
-'''
-if tools and isinstance(tools, list):
-    toml_content += f'tools = [{", ".join(f"\"{t}\"" for t in tools)}]\n'
+# Все строки сериализуем через json.dumps: JSON quoting совместим с TOML basic
+# strings и корректно экранирует \, ", переводы строк (иначе prompt с regex
+# вроде `\;` ломал парсинг — см. план 2026-06-01-fix-template-integrity).
+import json as _json
 
-toml_content += f'''
-[prompt]
-content = """{prompt}"""
-'''
+
+def _ts(value):
+    return _json.dumps(value, ensure_ascii=False)
+
+
+toml_path = f".codex/agents/{name}.toml"
+toml_lines = [
+    f"# Generated from .agents/subagents/{name}.yaml — do not edit manually",
+    f"name = {_ts(name)}",
+    f"description = {_ts(desc)}",
+    f"model = {_ts(model)}",
+]
+if tools and isinstance(tools, list):
+    toml_lines.append("tools = [" + ", ".join(_ts(t) for t in tools) + "]")
+toml_lines += ["", "[prompt]", f"content = {_ts(prompt)}"]
 
 with open(toml_path, "w") as f:
-    f.write(toml_content)
+    f.write("\n".join(toml_lines) + "\n")
 print(f"  ✅ Generated: {toml_path}")
 PYEOF
     generated_md=$((generated_md+1))
@@ -185,11 +192,12 @@ for name, server in servers.items():
     toml_lines.append(f"\n[mcp_servers.{name}]")
     for k, v in cx.items():
         if isinstance(v, str):
-            toml_lines.append(f'{k} = "{v}"')
+            toml_lines.append(f"{k} = {json.dumps(v, ensure_ascii=False)}")
         elif isinstance(v, list):
-            toml_lines.append(f'{k} = [{", ".join(f"\"{x}\"" for x in v)}]')
+            toml_lines.append(f"{k} = [" + ", ".join(json.dumps(x, ensure_ascii=False) for x in v) + "]")
         else:
-            toml_lines.append(f"{k} = {v}")
+            # bool/int → корректный TOML литерал (true/false/123), не Python repr
+            toml_lines.append(f"{k} = {json.dumps(v)}")
 
 with open(".codex/.mcp.toml", "w") as f:
     f.write("\n".join(toml_lines) + "\n")

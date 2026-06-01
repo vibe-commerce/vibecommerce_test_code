@@ -1,6 +1,10 @@
 # Внешние Claude Code инструменты (глобальные)
 
-Last Updated: 2026-05-02
+Last Updated: 2026-06-02
+
+> ⚠️ **Bootstrap-скрипт `install-claude-tools.sh` ещё не реализован** — это
+> запланированная фича (см. [brief](../backlog/briefs/2026-05-02-install-claude-tools.md)).
+> Пока внешние инструменты ставятся **вручную** по инструкции ниже.
 
 ## Что это
 
@@ -10,21 +14,17 @@ Last Updated: 2026-05-02
 
 - Переиспользовать одну установку во всех проектах на машине
 - Не дублировать чужой код в каждом форке
-- Получать обновления централизованно (одной правкой `install-claude-tools.sh`)
+- Получать обновления централизованно (в перспективе — одним bootstrap-скриптом)
 
-Чтобы шаблон оставался самодостаточным, в репозитории есть **bootstrap-скрипт**:
-он ставит всё нужное по pinned commit SHA из upstream-репозиториев.
+В перспективе планируется **bootstrap-скрипт**, который поставит всё нужное по
+pinned commit SHA из upstream-репозиториев (см. brief). Пока — установка вручную.
 
-## Установка / переустановка
+## Установка / переустановка (вручную)
 
-```bash
-make install-claude-tools
-# или напрямую:
-./scripts/install-claude-tools.sh
-```
-
-Скрипт **идемпотентен** — можно гонять повторно. После установки
-**перезапусти Claude Code**, чтобы он подхватил новых агентов и скиллов.
+Субагенты и скиллы ниже клонируются из upstream по pinned SHA и кладутся
+в `~/.claude/agents/` и `~/.claude/skills/` (см. секции «Что установлено»).
+После установки **перезапусти Claude Code**, чтобы он подхватил новых агентов
+и скиллов.
 
 ## Что установлено
 
@@ -80,20 +80,12 @@ python3 -m pip install --user --break-system-packages playwright
 
 ## Обновление до новой версии upstream
 
-1. Открыть `scripts/install-claude-tools.sh`
-2. Заменить `SHA_VOLT` или `SHA_ANTHRO` на новый коммит
-3. `make install-claude-tools` — переставит файлы из новой версии
-4. Закоммитить изменение скрипта (история обновлений видна в git log)
+1. Найти новый pinned SHA в upstream-репозитории
+2. Обновить SHA в этом документе (секции «Что установлено»)
+3. Переставить артефакт из новой версии вручную
+4. Закоммитить обновление SHA (история видна в git log)
 
-## На новой машине после `git clone`
-
-```bash
-git clone <repo-url> && cd <repo>
-make install-claude-tools
-# Перезапустить Claude Code
-```
-
-Готово — все 4 артефакта стоят, идентичные другим машинам (по SHA).
+Когда появится bootstrap-скрипт (см. brief), шаги 3 автоматизируются.
 
 ## Что НЕ ставится глобально
 
@@ -104,6 +96,5 @@ project-knowledge, и т.д.) — они едут с репо, потому чт
 
 ## Связанные документы
 
-- Бриф плана установки: [`backlog/briefs/2026-05-02-install-claude-tools.md`](../backlog/briefs/2026-05-02-install-claude-tools.md)
-- Скрипт установки: [`scripts/install-claude-tools.sh`](../scripts/install-claude-tools.sh)
+- Бриф плана установки (запланированный bootstrap-скрипт): [`backlog/briefs/2026-05-02-install-claude-tools.md`](../backlog/briefs/2026-05-02-install-claude-tools.md)
 - Глобальные skills/agents в Claude Code docs: <https://code.claude.com/docs/en/sub-agents>

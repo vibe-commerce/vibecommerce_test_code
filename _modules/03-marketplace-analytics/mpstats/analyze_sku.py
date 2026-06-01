@@ -5,9 +5,9 @@ Fetches item data from MPStats API, optionally builds niche context,
 and outputs a formatted report to console or Excel.
 
 Usage:
-    uv run --with httpx,python-dotenv PRJ_ANALYTICS/mpstats/analyze_sku.py 123456789
-    uv run --with httpx,python-dotenv PRJ_ANALYTICS/mpstats/analyze_sku.py 123456789 --platform wb
-    uv run --with httpx,python-dotenv,openpyxl PRJ_ANALYTICS/mpstats/analyze_sku.py 123456789 --xlsx
+    uv run --with httpx,python-dotenv _modules/03-marketplace-analytics/mpstats/analyze_sku.py 123456789
+    uv run --with httpx,python-dotenv _modules/03-marketplace-analytics/mpstats/analyze_sku.py 123456789 --platform wb
+    uv run --with httpx,python-dotenv,openpyxl _modules/03-marketplace-analytics/mpstats/analyze_sku.py 123456789 --xlsx
 """
 
 from __future__ import annotations

@@ -25,9 +25,10 @@ plt.rcParams['axes.titlesize'] = 12
 plt.rcParams['figure.dpi'] = 150
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-ADS_FILE = os.path.join(SCRIPT_DIR, 'ads_data_v2.0.xlsx')
-SALES_FILE = os.path.join(SCRIPT_DIR, 'sales_data_v1.0.xlsx')
-OUTPUT_DIR = os.path.join(SCRIPT_DIR, 'analysis_output')
+DATA_DIR = os.path.join(SCRIPT_DIR, '..', 'data-demo')
+ADS_FILE = os.path.join(DATA_DIR, 'ads_data_v2.0.xlsx')
+SALES_FILE = os.path.join(DATA_DIR, 'sales_data_v1.0.xlsx')
+OUTPUT_DIR = os.path.join(DATA_DIR, 'analysis_output')
 OUTPUT_XLSX = os.path.join(OUTPUT_DIR, 'funnel_report.xlsx')
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
@@ -273,9 +274,9 @@ for cat, metrics in cat_benchmarks.items():
 
 # Флаги узких мест + оценка потерянной выручки
 stage_names = {
-    'ctr': 'Показы\u2192Клики',
-    'cr_click_cart': 'Клики\u2192Корзина',
-    'cr_cart_order': 'Корзина\u2192Заказы',
+    'ctr': 'Показы→Клики',
+    'cr_click_cart': 'Клики→Корзина',
+    'cr_cart_order': 'Корзина→Заказы',
 }
 
 # Медианы для сегментации
@@ -351,9 +352,9 @@ for sku in sorted(sku_funnel.keys(), key=lambda s: -sku_funnel[s]['lost_revenue'
     if agg['ctr'] < cat_avg['ctr'] * 0.8:
         recs.append(f"CTR {agg['ctr']*100:.2f}% < среднего {cat_avg['ctr']*100:.2f}%: улучшить главное фото и заголовок")
     if agg['cr_click_cart'] < cat_avg['cr_click_cart'] * 0.8:
-        recs.append(f"CR клик\u2192корзина {agg['cr_click_cart']*100:.1f}% < {cat_avg['cr_click_cart']*100:.1f}%: доработать карточку (описание, фото, отзывы)")
+        recs.append(f"CR клик→корзина {agg['cr_click_cart']*100:.1f}% < {cat_avg['cr_click_cart']*100:.1f}%: доработать карточку (описание, фото, отзывы)")
     if agg['cr_cart_order'] < cat_avg['cr_cart_order'] * 0.8:
-        recs.append(f"CR корзина\u2192заказ {agg['cr_cart_order']*100:.1f}% < {cat_avg['cr_cart_order']*100:.1f}%: проверить цену/доставку/условия")
+        recs.append(f"CR корзина→заказ {agg['cr_cart_order']*100:.1f}% < {cat_avg['cr_cart_order']*100:.1f}%: проверить цену/доставку/условия")
     if agg['drr'] > 0.12:
         recs.append(f"ДРР {agg['drr']*100:.1f}% > 12%: оптимизировать рекламу")
     if agg['profit'] < 0:
@@ -408,7 +409,7 @@ ws1.title = "Воронка по SKU"
 headers1 = [
     ("SKU", 6), ("Название", 35), ("Категория", 18),
     ("Показы", 12), ("Клики", 10), ("Корзина", 10), ("Заказы", 10),
-    ("CTR, %", 10), ("CR клик\u2192корз, %", 16), ("CR корз\u2192заказ, %", 16), ("CR клик\u2192заказ, %", 16),
+    ("CTR, %", 10), ("CR клик→корз, %", 16), ("CR корз→заказ, %", 16), ("CR клик→заказ, %", 16),
     ("Выручка, \u20bd", 14), ("Прибыль, \u20bd", 13), ("Маржа, %", 10),
     ("ДРР, %", 9), ("ROAS", 8),
     ("Узкое место", 30), ("Сегмент", 18),
@@ -459,8 +460,8 @@ ws2 = wb_out.create_sheet("WB vs Ozon")
 headers2 = [
     ("SKU", 6), ("Название", 30), ("Категория", 16),
     ("CTR WB", 9), ("CTR Ozon", 10), ("\u0394 CTR", 9),
-    ("CR\u2192корз WB", 12), ("CR\u2192корз Ozon", 14), ("\u0394 CR\u2192корз", 12),
-    ("CR\u2192заказ WB", 14), ("CR\u2192заказ Ozon", 15), ("\u0394 CR\u2192заказ", 13),
+    ("CR→корз WB", 12), ("CR→корз Ozon", 14), ("\u0394 CR→корз", 12),
+    ("CR→заказ WB", 14), ("CR→заказ Ozon", 15), ("\u0394 CR→заказ", 13),
     ("Заказы WB", 11), ("Заказы Ozon", 12),
     ("Выручка WB", 13), ("Выручка Ozon", 14),
     ("ДРР WB", 9), ("ДРР Ozon", 10),
@@ -536,7 +537,7 @@ ws3 = wb_out.create_sheet("Категории")
 headers3 = [
     ("Категория", 18), ("SKU", 6),
     ("Показы", 12), ("Клики", 10), ("Корзина", 10), ("Заказы", 10),
-    ("CTR, %", 10), ("CR клик\u2192корз, %", 16), ("CR корз\u2192заказ, %", 16), ("CR клик\u2192заказ, %", 16),
+    ("CTR, %", 10), ("CR клик→корз, %", 16), ("CR корз→заказ, %", 16), ("CR клик→заказ, %", 16),
     ("Выручка, \u20bd", 14), ("Прибыль, \u20bd", 13), ("Маржа, %", 10),
     ("ДРР, %", 9), ("ROAS", 8),
 ]
@@ -619,7 +620,7 @@ ws5 = wb_out.create_sheet("Динамика по неделям")
 headers5 = [
     ("Неделя", 12),
     ("Показы", 12), ("Клики", 10), ("Корзина", 10), ("Заказы", 10),
-    ("CTR, %", 10), ("CR клик\u2192корз, %", 16), ("CR корз\u2192заказ, %", 16), ("CR клик\u2192заказ, %", 16),
+    ("CTR, %", 10), ("CR клик→корз, %", 16), ("CR корз→заказ, %", 16), ("CR клик→заказ, %", 16),
     ("Выручка, \u20bd", 14), ("Расход рекл., \u20bd", 15),
     ("ДРР, %", 9), ("ROAS", 8),
 ]
@@ -652,7 +653,7 @@ headers6 = [
     ("SKU", 6), ("Название", 30), ("Категория", 16),
     ("Показы", 12), ("Заказы", 10),
     ("Выручка, \u20bd", 13), ("Прибыль, \u20bd", 13), ("Маржа, %", 10),
-    ("CR клик\u2192заказ, %", 16), ("ДРР, %", 9),
+    ("CR клик→заказ, %", 16), ("ДРР, %", 9),
     ("Сегмент", 20),
 ]
 write_header_row(ws6, headers6)
@@ -695,8 +696,8 @@ ws7 = wb_out.create_sheet("Топ проблемных SKU")
 headers7 = [
     ("SKU", 6), ("Название", 30), ("Категория", 16),
     ("Потер. выручка, \u20bd", 17), ("Главное узкое место", 22),
-    ("CTR, %", 10), ("CR\u2192корз, %", 12), ("CR\u2192заказ, %", 12),
-    ("CTR категории, %", 16), ("CR\u2192корз кат., %", 16), ("CR\u2192заказ кат., %", 16),
+    ("CTR, %", 10), ("CR→корз, %", 12), ("CR→заказ, %", 12),
+    ("CTR категории, %", 16), ("CR→корз кат., %", 16), ("CR→заказ кат., %", 16),
     ("Выручка, \u20bd", 13), ("Прибыль, \u20bd", 13),
 ]
 write_header_row(ws7, headers7)
@@ -808,7 +809,7 @@ for i in range(3):
 ax.set_xticks(x)
 ax.set_xticklabels(stages, fontsize=12, fontweight='bold')
 ax.set_ylabel('Количество')
-ax.set_title('Воронка продаж: WB vs Ozon (общая за 12 недель)\nПоказы \u2192 Клики \u2192 Корзина \u2192 Заказы',
+ax.set_title('Воронка продаж: WB vs Ozon (общая за 12 недель)\nПоказы → Клики → Корзина → Заказы',
              fontsize=14, fontweight='bold')
 ax.legend(fontsize=12)
 ax.yaxis.set_major_formatter(mticker.FuncFormatter(lambda x, p: f'{x:,.0f}'))
@@ -823,7 +824,7 @@ print("  06_funnel_overview.png")
 fig, ax = plt.subplots(figsize=(12, 7))
 
 categories = sorted(cat_funnel.keys())
-metrics_names = ['CTR, %', 'CR клик\u2192корзина, %', 'CR корзина\u2192заказ, %']
+metrics_names = ['CTR, %', 'CR клик→корзина, %', 'CR корзина→заказ, %']
 metrics_keys = ['ctr', 'cr_click_cart', 'cr_cart_order']
 
 matrix = []
@@ -891,7 +892,7 @@ legend_els = [Line2D([0], [0], marker='o', color='w', markerfacecolor=cat_colors
 ax.legend(handles=legend_els, loc='center left', bbox_to_anchor=(1.01, 0.5), fontsize=9)
 
 ax.set_xlabel('Показы (всего за 12 недель)', fontsize=11)
-ax.set_ylabel('CR клик \u2192 заказ, %', fontsize=11)
+ax.set_ylabel('CR клик → заказ, %', fontsize=11)
 ax.set_title('Трафик vs Конверсия по SKU\n(размер = выручка)', fontsize=14, fontweight='bold')
 ax.xaxis.set_major_formatter(mticker.FuncFormatter(lambda x, p: f'{x:,.0f}'))
 ax.grid(True, alpha=0.2)
@@ -911,8 +912,8 @@ for r in merged:
 cats_sorted = sorted(cat_funnel.keys())
 metrics_plot = [
     ('ctr', 'CTR, %', axes[0]),
-    ('cr_click_cart', 'CR клик\u2192корзина, %', axes[1]),
-    ('cr_cart_order', 'CR корзина\u2192заказ, %', axes[2]),
+    ('cr_click_cart', 'CR клик→корзина, %', axes[1]),
+    ('cr_cart_order', 'CR корзина→заказ, %', axes[2]),
 ]
 
 for metric_key, metric_label, ax in metrics_plot:
@@ -961,9 +962,9 @@ for week in sorted(set(w for w, _ in weeks_sorted)):
         oz_weekly.append(aggregate_funnel(oz_rows))
 
 metrics_trend = [
-    ('ctr', 'CTR (Показы \u2192 Клики), %', axes[0]),
-    ('cr_click_cart', 'CR (Клики \u2192 Корзина), %', axes[1]),
-    ('cr_cart_order', 'CR (Корзина \u2192 Заказы), %', axes[2]),
+    ('ctr', 'CTR (Показы → Клики), %', axes[0]),
+    ('cr_click_cart', 'CR (Клики → Корзина), %', axes[1]),
+    ('cr_cart_order', 'CR (Корзина → Заказы), %', axes[2]),
 ]
 
 for metric_key, metric_label, ax in metrics_trend:
@@ -1084,9 +1085,9 @@ top15 = sorted(sku_funnel.values(), key=lambda a: -a['lost_revenue'])[:15]
 
 # Цвета по типу узкого места
 bn_colors = {
-    'Показы\u2192Клики': '#d32f2f',
-    'Клики\u2192Корзина': '#f57c00',
-    'Корзина\u2192Заказы': '#7b1fa2',
+    'Показы→Клики': '#d32f2f',
+    'Клики→Корзина': '#f57c00',
+    'Корзина→Заказы': '#7b1fa2',
     'Нет': '#999999',
 }
 
@@ -1136,18 +1137,18 @@ total = aggregate_funnel(merged)
 print("\n  ОБЩАЯ ВОРОНКА:")
 print(f"  Показы:  {total['impr']:>12,}")
 print(f"  Клики:   {total['clicks']:>12,}  (CTR: {total['ctr']*100:.2f}%)")
-print(f"  Корзина: {total['atc']:>12,}  (CR клик\u2192корз: {total['cr_click_cart']*100:.1f}%)")
-print(f"  Заказы:  {total['orders']:>12,}  (CR корз\u2192заказ: {total['cr_cart_order']*100:.1f}%)")
+print(f"  Корзина: {total['atc']:>12,}  (CR клик→корз: {total['cr_click_cart']*100:.1f}%)")
+print(f"  Заказы:  {total['orders']:>12,}  (CR корз→заказ: {total['cr_cart_order']*100:.1f}%)")
 
 print("\n  WB vs OZON:")
 print(f"  {'':>20} {'WB':>10} {'Ozon':>10}")
 print(f"  {'CTR':>20} {wb_total['ctr']*100:>9.2f}% {oz_total['ctr']*100:>9.2f}%")
-print(f"  {'CR клик\u2192корзина':>20} {wb_total['cr_click_cart']*100:>9.1f}% {oz_total['cr_click_cart']*100:>9.1f}%")
-print(f"  {'CR корз\u2192заказ':>20} {wb_total['cr_cart_order']*100:>9.1f}% {oz_total['cr_cart_order']*100:>9.1f}%")
+print(f"  {'CR клик→корзина':>20} {wb_total['cr_click_cart']*100:>9.1f}% {oz_total['cr_click_cart']*100:>9.1f}%")
+print(f"  {'CR корз→заказ':>20} {wb_total['cr_cart_order']*100:>9.1f}% {oz_total['cr_cart_order']*100:>9.1f}%")
 print(f"  {'ДРР':>20} {wb_total['drr']*100:>9.1f}% {oz_total['drr']*100:>9.1f}%")
 print(f"  {'ROAS':>20} {wb_total['roas']:>9.1f}x {oz_total['roas']:>9.1f}x")
 
-print("\n  КАТЕГОРИИ (CR клик\u2192заказ):")
+print("\n  КАТЕГОРИИ (CR клик→заказ):")
 for cat in sorted(cat_funnel.keys(), key=lambda c: -cat_funnel[c]['cr_click_order']):
     a = cat_funnel[cat]
     print(f"  {cat:<20} CR={a['cr_click_order']*100:.2f}%  CTR={a['ctr']*100:.2f}%  ДРР={a['drr']*100:.1f}%  маржа={a['margin_pct']*100:.1f}%")

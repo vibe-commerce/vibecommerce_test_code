@@ -7,13 +7,13 @@ Phase 3: Export consolidated report to Excel.
 
 Usage:
     # Phase 1 — discover categories
-    uv run --with httpx,python-dotenv PRJ_ANALYTICS/mpstats/research_sleep.py --discover
+    uv run --with httpx,python-dotenv _modules/03-marketplace-analytics/mpstats/research_sleep.py --discover
 
     # Phase 2 — full research (discover + analyze + Excel)
-    uv run --with httpx,python-dotenv,openpyxl PRJ_ANALYTICS/mpstats/research_sleep.py
+    uv run --with httpx,python-dotenv,openpyxl _modules/03-marketplace-analytics/mpstats/research_sleep.py
 
     # Analyze specific platforms only
-    uv run --with httpx,python-dotenv,openpyxl PRJ_ANALYTICS/mpstats/research_sleep.py --platforms wb oz
+    uv run --with httpx,python-dotenv,openpyxl _modules/03-marketplace-analytics/mpstats/research_sleep.py --platforms wb oz
 """
 
 from __future__ import annotations
@@ -389,7 +389,7 @@ def main() -> None:
                         help="Platforms to research (default: all)")
     parser.add_argument("--days", type=int, default=30, help="Analysis period in days (default: 30)")
     parser.add_argument("--xlsx", metavar="FILE", help="Excel output path",
-                        default="PRJ_ANALYTICS/mpstats/sleep_market_research.xlsx")
+                        default="sleep_market_research.xlsx")
     parser.add_argument("--no-xlsx", action="store_true", help="Skip Excel export")
     args = parser.parse_args()
 

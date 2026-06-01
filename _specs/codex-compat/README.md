@@ -9,14 +9,14 @@ Last Updated: 2026-05-29
 Полная методология + ресёрч + готовый пример живут в **EMPTY_code** (это
 наш «исходник истины» для cross-agent методологии):
 
-- **План:** [`EMPTY_code/backlog/plans/2026-05-08-codex-compatibility.md`](/Users/vadimbakanov/Documents/_CODE/EMPTY_code/backlog/plans/2026-05-08-codex-compatibility.md)
-  — 6 фаз, ~12-18 часов работы
-- **Ресёрч (~80 KB):** [`EMPTY_code/_specs/codex-compat/`](/Users/vadimbakanov/Documents/_CODE/EMPTY_code/_specs/codex-compat/)
+- **План:** `EMPTY_code/backlog/plans/2026-05-08-codex-compatibility.md`
+  — 6 фаз, ~12-18 часов работы (внутренний репо автора, в форке недоступен)
+- **Ресёрч (~80 KB):** `EMPTY_code/_specs/codex-compat/` (внутренний репо автора)
   - `research-claude-code.md` — Claude Code детально
   - `research-codex.md` — OpenAI Codex детально
   - `research-cross-agent.md` — agents.md spec + межагентские паттерны
   - `research.md` — синтез
-- **Готовый пример:** [`vadim-bakanov-ai-dev/.agents/skills/`](/Users/vadimbakanov/Documents/_CODE/vadim-bakanov-ai-dev/.agents/skills/) — 22 skill уже в кросс-формате
+- **Готовый пример:** `vadim-bakanov-ai-dev/.agents/skills/` — 22 skill в кросс-формате (внутренний репо автора)
 
 ## Что реализовано в test_code (фаза C base)
 
@@ -94,7 +94,7 @@ test_code/
 
 ## Связанные
 
-- План апгрейда test_code: [`../../backlog/plans/2026-05-28-upgrade-test-code-from-best-practices.md`](../../backlog/plans/2026-05-28-upgrade-test-code-from-best-practices.md) — раздел 3.12 «Фаза C»
+- История апгрейда test_code (фаза C cross-agent): [`../../_changelogs/CHANGELOG.md`](../../_changelogs/CHANGELOG.md) — записи 0.3.0 / 0.3.1
 - AGENTS.md канон: [`../../AGENTS.md`](../../AGENTS.md)
 - CLAUDE.md канон: [`../../CLAUDE.md`](../../CLAUDE.md)
 - Общие инструкции: [`../../_shared/INSTRUCTIONS.md`](../../_shared/INSTRUCTIONS.md)

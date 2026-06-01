@@ -65,7 +65,7 @@
 - Закрывает: {issue / тикет / ADR}
 - Сменяет: ADR-{XXX} (если есть)
 - Зависит от: ADR-{XXX} (если есть)
-- Связанная спека: [_specs/.../tech-spec.md](_specs/...)
+- Связанная спека: `_specs/<feature>/tech-spec.md` (placeholder — замени на реальный путь)
 
 ---
 

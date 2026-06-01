@@ -67,13 +67,9 @@ bash .claude/hooks/memory-bank-check.sh  # должен запуститься �
 
 ## Шаг 6 — Глобальные skills/agents
 
-Если хочешь подключить глобальные skills из `~/.claude/` (например, `/handoff`):
-
-```bash
-make install-claude-tools  # копирует из ~/.claude/ если есть
-```
-
-См. `.claude/EXTERNAL-TOOLS.md` для списка.
+Если хочешь подключить глобальные skills/agents из `~/.claude/` (например,
+`webapp-testing`), ставь их вручную — список и pinned-SHA в
+`.claude/EXTERNAL-TOOLS.md` (bootstrap-скрипт запланирован, но ещё не реализован).
 
 ## Шаг 7 — Первый тест
 

@@ -52,4 +52,4 @@ Workflow упрощён до `local` + `main` — отдельных DEV/PROD ch
 
 - Родитель: [`../README.md`](../README.md)
 - VERSION: [`../VERSION`](../VERSION)
-- Текущий план апгрейда: [`../backlog/plans/2026-05-28-upgrade-test-code-from-best-practices.md`](../backlog/plans/2026-05-28-upgrade-test-code-from-best-practices.md)
+- Активные планы: [`../backlog/plans/README.md`](../backlog/plans/README.md)

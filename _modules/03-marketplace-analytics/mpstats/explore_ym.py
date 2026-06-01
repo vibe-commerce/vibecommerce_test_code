@@ -5,8 +5,8 @@ MPStats YM endpoints are not publicly documented. This script tests
 common endpoint patterns to discover what's available.
 
 Usage:
-    uv run --with httpx,python-dotenv PRJ_ANALYTICS/mpstats/explore_ym.py
-    uv run --with httpx,python-dotenv PRJ_ANALYTICS/mpstats/explore_ym.py --item 12345
+    uv run --with httpx,python-dotenv _modules/03-marketplace-analytics/mpstats/explore_ym.py
+    uv run --with httpx,python-dotenv _modules/03-marketplace-analytics/mpstats/explore_ym.py --item 12345
 """
 
 from __future__ import annotations

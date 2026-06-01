@@ -10,6 +10,7 @@
 генерации sales_rows из generate_sales_data.py (секции 1–6).
 """
 
+import os
 import openpyxl
 from openpyxl.styles import Font, Alignment, PatternFill, Border, Side
 from openpyxl.utils import get_column_letter
@@ -649,7 +650,9 @@ ws_sum.freeze_panes = "A2"
 # ============================================================
 # 10. СОХРАНЕНИЕ И ВЕРИФИКАЦИЯ
 # ============================================================
-output_path = "/Users/vadimbakanov/Documents/_CODE/vibecommerce_test_code/PRJ_MARKETPLACE/ads_data_v1.0.xlsx"
+DATA_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data-demo")
+os.makedirs(DATA_DIR, exist_ok=True)
+output_path = os.path.join(DATA_DIR, "ads_data_v1.0.xlsx")
 wb.save(output_path)
 
 print(f"✓ Файл сохранён: {output_path}")

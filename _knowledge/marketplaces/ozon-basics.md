@@ -39,8 +39,8 @@ Ozon использует **Client-Id + Api-Key** в HTTP headers:
 ```http
 GET /v3/product/list HTTP/1.1
 Host: api-seller.ozon.ru
-Client-Id: 1234567
-Api-Key: 3b8f1537-6ee3-42f7-9270-66f5a508e031
+Client-Id: {client-id}
+Api-Key: {ozon-api-key}
 ```
 
 - `Client-Id` — числовой ID продавца из ЛК

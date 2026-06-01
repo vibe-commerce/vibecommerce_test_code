@@ -2,9 +2,10 @@
 Анализ ценовой эластичности спроса по данным продаж.
 
 Использование:
-  uv run --with openpyxl --with matplotlib PRJ_PRICING/price_elasticity.py <путь_к_xlsx>
+  uv run --with openpyxl --with matplotlib _modules/02-unit-economics/scripts/price_elasticity.py <путь_к_xlsx>
 
-  Если путь не указан — используется PRJ_MARKETPLACE/sales_data_v1.0.xlsx
+  Если путь не указан — используются демо-данные модуля 05
+  (_modules/05-ads-optimization/data-demo/sales_data_v1.0.xlsx)
 
 Формат входного файла (.xlsx):
   Лист "Каталог": SKU | Название | Категория | Себестоимость, ₽ | ...
@@ -45,8 +46,10 @@ plt.rcParams['axes.titlesize'] = 12
 plt.rcParams['figure.dpi'] = 150
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-REPO_ROOT = os.path.dirname(SCRIPT_DIR)
-DEFAULT_DATA = os.path.join(REPO_ROOT, 'PRJ_MARKETPLACE', 'sales_data_v1.0.xlsx')
+# Демо-данные продаж лежат в модуле 05 (генерируются его generate_sales_data.py)
+DEFAULT_DATA = os.path.join(
+    SCRIPT_DIR, '..', '..', '05-ads-optimization', 'data-demo', 'sales_data_v1.0.xlsx'
+)
 OUTPUT_DIR = os.path.join(SCRIPT_DIR, 'reports')
 
 

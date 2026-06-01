@@ -31,13 +31,13 @@ Last Updated: 2026-05-29
   - ФИНОТЧЕТ → `_private/finance/`
   - Anton-Masha → `clients/anton-masha/`
   - electronics-returned-stock → `clients/electronics-returned-stock/`
-- 2026-05-28 — Тиринг FREE/VIP — детально в [`backlog/plans/2026-05-28-skills-agents-tiering-matrix.md`](../backlog/plans/2026-05-28-skills-agents-tiering-matrix.md)
+- 2026-05-28 — Тиринг FREE/VIP — полная матрица в VIP-репо `vibecommerce_vip_code`
 - 2026-05-28 — VIP-лицензия BSL 1.1 (как `vibecommerce_ai_analyst_code`)
 - 2026-05-28 — Cross-agent compat реализуется через `AGENTS.md` (Codex) + `CLAUDE.md` (Claude) + `_shared/INSTRUCTIONS.md` (общее)
 
 ## Что в работе
 
-- Апгрейд test_code 0.2.0 → 0.3.0 (см. [`backlog/plans/2026-05-28-upgrade-test-code-from-best-practices.md`](../backlog/plans/2026-05-28-upgrade-test-code-from-best-practices.md))
+- Апгрейд test_code 0.2.0 → 0.3.0 (история — в `_changelogs/CHANGELOG.md`)
 - Создание VIP-репо `vibecommerce_vip_code` (фаза V — открытая задача)
 - Split гибридов (mpstats-analyst basic/PRO, etc.) — после VIP-репо
 

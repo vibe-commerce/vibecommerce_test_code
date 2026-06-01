@@ -1,23 +1,24 @@
-.PHONY: install install-claude-tools run test test-e2e lint format clean sync-agents verify-agents
+.PHONY: install run test lint format clean sync-agents verify-agents
 
 install:
-	uv pip install -e ".[dev]" 2>/dev/null || pip install -e ".[dev]"
-
-install-claude-tools:
-	./scripts/install-claude-tools.sh
+	@if command -v uv >/dev/null 2>&1; then \
+		uv pip install -e ".[dev]"; \
+	else \
+		pip install -e ".[dev]"; \
+	fi
 
 run:
 	@echo "Stub: модули — read-only. Запускай скрипты из _modules/<NN>/scripts/ напрямую"
 	@echo "  python _modules/05-ads-optimization/scripts/abcdx_analysis.py"
 
 test:
-	pytest _modules/ -v 2>/dev/null || echo "Нет тестов — запускай скрипты модулей напрямую"
+	pytest tests/ -v
 
 lint:
-	ruff check _modules/ scripts/ 2>/dev/null || echo "Установи ruff: pip install ruff"
+	ruff check _modules/ scripts/ tests/
 
 format:
-	ruff format _modules/ scripts/ 2>/dev/null || echo "Установи ruff: pip install ruff"
+	ruff format _modules/ scripts/ tests/
 
 clean:
 	find . -type d -name __pycache__ -prune -exec rm -rf {} +

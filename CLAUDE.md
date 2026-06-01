@@ -169,10 +169,12 @@ gh auth switch --user vibe-commerce
 
 ```bash
 make install                # Установка зависимостей проекта (Python через uv/pip)
-make install-claude-tools   # Установка внешних агентов/скиллов в ~/.claude/
 make run                    # Локальный запуск (зависит от модуля)
 make test                   # unit tests
 make lint                   # lint only
+
+# Внешние глобальные агенты/скиллы (~/.claude/) — пока ставятся вручную,
+# см. .claude/EXTERNAL-TOOLS.md (bootstrap-скрипт запланирован)
 ```
 
 ### Feedback Loop

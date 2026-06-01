@@ -94,8 +94,8 @@ git remote add origin https://github.com/<user>/<repo>.git
 | `pyproject.toml` | имя проекта, описание, зависимости |
 | `config/default.yaml` | базовые настройки |
 
-Если стек **не** Python — удали `pyproject.toml`, `Makefile` (или адаптируй),
-секцию pytest в `tests/`. Шаблоны других стеков — в [`../deploy/`](../deploy/).
+Если стек **не** Python — удали `pyproject.toml`, `Makefile` (или адаптируй)
+и каталог `tests/`.
 
 ## Шаг 4. Очистить пример кода
 

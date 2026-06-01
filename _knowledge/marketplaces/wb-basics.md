@@ -41,7 +41,7 @@ WB использует **JWT-токены** в HTTP header `Authorization`:
 ```http
 GET /api/v1/supplier/sales HTTP/1.1
 Host: statistics-api.wildberries.ru
-Authorization: eyJhbGciOiJFUzI1NiIs...
+Authorization: {wb-api-token}
 ```
 
 Токен генерируется в ЛК WB → Профиль → Доступ к API. Один токен — все API.

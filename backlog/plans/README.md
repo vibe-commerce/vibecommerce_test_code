@@ -1,6 +1,6 @@
 # `backlog/plans/` — планы реализации
 
-Last Updated: 2026-05-29
+Last Updated: 2026-06-01
 
 ## Что здесь
 
@@ -59,10 +59,17 @@ ideas/  →  briefs/  →  plans/  →  код  →  documentation/
 
 ## Текущие планы
 
-- [`2026-05-28-upgrade-test-code-from-best-practices.md`](2026-05-28-upgrade-test-code-from-best-practices.md) —
-  главный план апгрейда test_code 0.2.0 → 0.3.0 (тиринг FREE/VIP + Codex compat)
-- [`2026-05-28-skills-agents-tiering-matrix.md`](2026-05-28-skills-agents-tiering-matrix.md) —
-  компактная матрица распределения skills/agents/rules/knowledge между FREE и VIP
+- `2026-05-28-upgrade-test-code-from-best-practices.md` — отсутствующий файл:
+  исторически упомянут как главный план апгрейда test_code 0.2.0 → 0.3.0
+  (тиринг FREE/VIP + Codex compat)
+- `2026-05-28-skills-agents-tiering-matrix.md` — отсутствующий файл:
+  исторически упомянут как матрица распределения skills/agents/rules/knowledge
+  между FREE и VIP
+- [`2026-06-01-fix-template-integrity.md`](2026-06-01-fix-template-integrity.md) —
+  починка целостности шаблона по результатам QA-прогона (блокеры install + личные пути + пути модуля 05)
+
+> ⚠️ Два плана выше (`2026-05-28-*`) физически отсутствуют,
+> зафиксированы как P3 в [`2026-06-01-fix-template-integrity.md`](2026-06-01-fix-template-integrity.md).
 
 ## Связанные
 

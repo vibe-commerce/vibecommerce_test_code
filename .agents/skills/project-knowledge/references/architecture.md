@@ -94,4 +94,4 @@ Last Updated: 2026-05-01
 | `.claude` | AI-инфраструктура (Claude Code) | `.claude/skills`, `.claude/agents`, `.claude/rules` |
 
 В форках шаблона можно вводить `__name` для основных бизнес-папок и `___name` для
-индивидуальных проектов — как в [vibecommerce](/Users/vadimbakanov/Documents/_CODE/vibecommerce_code/).
+индивидуальных проектов — как в проекте `vibecommerce_code` (внутренний репо автора).

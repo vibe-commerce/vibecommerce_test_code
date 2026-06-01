@@ -14,6 +14,6 @@
 
 ## Связанные данные
 
-Для каждого исследования могут быть дополнительные файлы в `PRJ_ANALYTICS/mpstats/`:
+Для каждого исследования могут быть дополнительные файлы в `_modules/03-marketplace-analytics/mpstats/`:
 - `{тема}_market_research.xlsx` — Excel с детальными данными
 - `{тема}_market_research.json` — JSON-сводка для программной обработки

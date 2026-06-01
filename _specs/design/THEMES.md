@@ -224,8 +224,9 @@ export default {
 - [_specs/design/themes/02-slovo-editorial.css](themes/02-slovo-editorial.css)
 - [_specs/design/themes/03-geist-neutral.css](themes/03-geist-neutral.css)
 - [_specs/design/themes/04-monochrome.css](themes/04-monochrome.css)
-- [design-system/](../../design-system/) — каталог UI-компонентов
-  с переключателем темы (после применения плана из
-  `backlog/ideas/2026-05-01-template-upgrade-from-active-repos.md`)
+- `design-system/` — каталог UI-компонентов с переключателем темы
+  (папка появляется только после применения плана из
+  `backlog/ideas/2026-05-01-template-upgrade-from-active-repos.md`; в базовом
+  шаблоне её нет)
 - Скилл `/design-system` — генерирует токены из референса для нового
   проекта (если 4 темы не подходят)

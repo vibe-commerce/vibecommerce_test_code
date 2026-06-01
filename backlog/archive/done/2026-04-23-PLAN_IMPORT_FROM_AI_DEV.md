@@ -3,7 +3,7 @@
 > **🗄️ ARCHIVED 2026-05-29 — DONE (partially)**
 >
 > Закрыт. То, что не выполнено, теперь часть актуального плана:
-> [`backlog/plans/2026-05-28-upgrade-test-code-from-best-practices.md`](../../plans/2026-05-28-upgrade-test-code-from-best-practices.md)
+> `backlog/plans/2026-05-28-upgrade-test-code-from-best-practices.md`
 >
 > Конкретно поглощены:
 > - Фаза 2.5/2.6 — миграция skills и agents из ai-dev (включая `agent-creator`, `skill-creator`)

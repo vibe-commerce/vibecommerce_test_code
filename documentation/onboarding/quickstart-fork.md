@@ -28,7 +28,7 @@ git push -u origin main
 ```bash
 # macOS / Linux
 make install
-make install-claude-tools  # если нужны глобальные skills
+# глобальные skills/agents (~/.claude/) — вручную, см. .claude/EXTERNAL-TOOLS.md
 
 # Windows (через WSL2 или Git Bash)
 # см. install-windows.md

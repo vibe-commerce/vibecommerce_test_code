@@ -74,7 +74,7 @@ Status: brief (черновик рекомендаций)
 
 **Особенно полезно** для cross-repo работы (анализ скиллов в 12 репо одновременно — то, чем ты регулярно занимаешься, см. задачи в `backlog/`).
 
-**Установка:** `claude mcp add filesystem -- npx -y @modelcontextprotocol/server-filesystem /Users/vadimbakanov/Documents/_CODE`.
+**Установка:** `claude mcp add filesystem -- npx -y @modelcontextprotocol/server-filesystem <путь-к-вашему-коду>`.
 
 #### 3. Sequential Thinking MCP (reference)
 
@@ -158,7 +158,7 @@ Status: brief (черновик рекомендаций)
 - [ ] Удалить дубль context7: убрать запись из `~/.claude/mcp.json`, оставить plugin
 - [ ] Привести `playwright` к одному ID в `~/.claude/settings.json` и `EMPTY_code/.claude/settings.json`
 - [ ] Установить **github** MCP (`claude mcp add github`), создать PAT с `repo` scope
-- [ ] Установить **filesystem** MCP с корнем `/Users/vadimbakanov/Documents/_CODE`
+- [ ] Установить **filesystem** MCP с корнем `<путь-к-вашему-коду>`
 - [ ] Установить **sequential-thinking** MCP
 - [ ] Решить по **supabase** — какие репо реально его используют
 - [ ] Решить по **vercel** — какие репо там деплоятся
@@ -170,7 +170,7 @@ Status: brief (черновик рекомендаций)
 
 - [CLAUDE.md](../../CLAUDE.md) — раздел «Context7 MCP» (расширить)
 - [`.claude/settings.json`](../../.claude/settings.json) — `enabledPlugins` и `permissions`
-- [`~/.claude/mcp.json`](file:///Users/vadimbakanov/.claude/mcp.json) — глобальные MCP-конфиги
+- `~/.claude/mcp.json` — глобальные MCP-конфиги
 - [`backlog/briefs/2026-05-02-skills-vs-subagents-audit.md`](2026-05-02-skills-vs-subagents-audit.md) — параллельный аудит инструментов
 - [`_practices/00-WORKFLOW.md`](../../_practices/00-WORKFLOW.md) — этап 4 (разработка) и 5 (feedback loop) — где MCP вписываются
 

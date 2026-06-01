@@ -32,11 +32,16 @@ Last Updated: 2026-05-29
 
 ## Базовый workflow
 
+Все скрипты пишут/читают в `data-demo/` (рядом со `scripts/`). Порядок важен:
+ABCDX читает `ads_data_v1.0.xlsx`, funnel читает `ads_data_v2.0.xlsx`
+(результат ABCDX) + `sales_data_v1.0.xlsx`.
+
 ```
-1. python scripts/generate_sales_data.py  # сгенерировать демо-данные (если нет своих)
-2. python scripts/abcdx_analysis.py       # классифицировать SKU
-3. python scripts/funnel_analysis.py      # найти узкие места воронки
-4. Перенести логику на свои данные → my-project/04-ads/
+1. python scripts/generate_sales_data.py  # → data-demo/sales_data_v1.0.xlsx
+2. python scripts/generate_ads_data.py    # → data-demo/ads_data_v1.0.xlsx
+3. python scripts/abcdx_analysis.py       # ads_data_v1.0 → data-demo/ads_data_v2.0.xlsx (ABCDX)
+4. python scripts/funnel_analysis.py      # ads_data_v2.0 + sales → data-demo/analysis_output/
+5. Перенести логику на свои данные → my-project/04-ads/
 ```
 
 ## Чек-лист «модуль закрыт»

@@ -1,45 +1,33 @@
-# Проекты
+# Структура проектов
 
-Last Updated: 2026-02-13
+Last Updated: 2026-06-02
 
-## PRJ_MARKETPLACE — Маркетплейсы
-Работа с маркетплейсами: Wildberries, Ozon, Яндекс.Маркет и др.
+> С версии 0.3.0 старые папки `PRJ_*` (личные проекты автора) **удалены** по
+> Принципу №0 (pure template) и заменены на структуру EMPTY_code:
+> **`_modules/`** (методички, read-only) + **`my-project/`** (рабочая зона студента).
+> Ниже — куда переехало содержимое прежних `PRJ_*`.
 
-Содержимое:
-- FACTS.md — ключевые метрики, контакты, реквизиты
-- sales_data_v1.0.xlsx — тестовый датасет продаж (50 SKU, 12 недель, WB + Ozon)
-- ads_data_v1.0.xlsx, ads_data_v2.0.xlsx — рекламные и трафиковые данные
-- abcdx_analysis.py — скрипт ABCDX-анализа ассортимента
-- generate_sales_data.py, generate_ads_data.py — скрипты генерации данных
+## Где теперь что (миграция PRJ_* → _modules/)
 
-## PRJ_DTC — Собственный E-Commerce (D2C)
-Развитие собственного интернет-магазина (Direct to Consumer).
+| Было (`PRJ_*`) | Стало | Что внутри |
+|----------------|-------|------------|
+| `PRJ_ВЫБОР_НИШИ` | [`_modules/01-niche-selection/`](../_modules/01-niche-selection/) | план выбора ниши, демо-CSV Ozon, `add_buyback_rate.py` |
+| `PRJ_MARKETPLACE` | [`_modules/05-ads-optimization/`](../_modules/05-ads-optimization/) | ABCDX, воронка, генераторы демо-данных (`data-demo/`) |
+| `PRJ_ANALYTICS` | [`_modules/03-marketplace-analytics/`](../_modules/03-marketplace-analytics/) | MPStats-клиент (`mpstats/`), модель ДДС (`cashflow/`) |
+| `PRJ_ВОРОНКА` | [`_modules/04-funnel-jtbd/`](../_modules/04-funnel-jtbd/) + [`_prompts/jtbd/`](../_prompts/jtbd/) | JTBD-методика и промпт-карточки |
+| `PRJ_DEMO` / `PRJ_DTC` | — | демо-финмодели и D2C-заготовки убраны (личные данные автора) |
 
-Содержимое:
-- FACTS.md — метрики, конверсии, трафик
+## Как работать со своим проектом
 
-## PRJ_ANALYTICS — Аналитика и отчёты
-Сводные отчёты, дашборды, unit-экономика, когортный анализ.
+Один форк = **один проект селлера** в [`my-project/`](../my-project/). Подпапки
+`00-niche`…`06-finance` соответствуют 7 модулям. Методику бери из `_modules/`,
+результаты складывай в `my-project/` (свои выгрузки — в `my-project/data/`,
+gitignored).
 
-Содержимое: папки создаются по мере появления отчётов.
+См. [`../my-project/README.md`](../my-project/README.md) — карта рабочей зоны.
 
-## PRJ_DEMO — Демо-проект
-Финансовые модели и слайды для демонстрации возможностей.
+## Связанные
 
-Содержимое:
-- micellar_water_model_v1.xlsx — финмодель мицеллярной воды
-- slides/ — презентация (HTML-слайдшоу)
-
-## PRJ_ВОРОНКА — Конверсионные воронки и JTBD
-Работа с конверсионными воронками карточек товаров, JTBD-анализ, CRO-стратегия.
-
-Содержимое:
-- JTBD_prompt_kartochka.txt — промпт для JTBD-анализа и оптимизации карточки товара
-
-## PRJ_ВЫБОР_НИШИ — Анализ и выбор ниши
-Анализ ниш для выхода на маркетплейсы (WB, Ozon). Скоринг, проверка спроса, выкупаемость.
-
-Содержимое:
-- niche-selection-plan.md — план выбора ниши (6 фаз, бюджет ~300 тыс. руб.)
-- CSV-файлы — выгрузки ниш Ozon с процентом выкупа
-- add_buyback_rate.py — скрипт добавления процента выкупа
+- Методические модули: [`../_modules/README.md`](../_modules/README.md)
+- Рабочая зона студента: [`../my-project/README.md`](../my-project/README.md)
+- История миграции: [`../_changelogs/CHANGELOG.md`](../_changelogs/CHANGELOG.md) (0.3.0)

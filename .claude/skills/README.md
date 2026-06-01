@@ -70,7 +70,7 @@ SKILL.md в конце есть секция «📈 Полная версия �
 - `seo-research` — конкурентский SEO-ресёрч
 
 ⚠️ Если ты видишь эти папки в FREE-репо — они здесь временно, до миграции
-в VIP-репо (фаза V плана апгрейда). См. [план](../../backlog/plans/2026-05-28-upgrade-test-code-from-best-practices.md).
+в VIP-репо (фаза V тиринга). История апгрейда — в [`_changelogs/CHANGELOG.md`](../../_changelogs/CHANGELOG.md).
 
 ## DEPRECATED (удалены)
 
@@ -94,4 +94,4 @@ SKILL.md — см. `skill-creator/references/`.
 - Cross-agent shared skills: [`../../.agents/skills/`](../../.agents/skills/) *(пусто, наполняется в C12)*
 - Sub-агенты: [`../agents/`](../agents/)
 - Rules: [`../rules/`](../rules/)
-- Tiering matrix (полная): [`../../backlog/plans/2026-05-28-skills-agents-tiering-matrix.md`](../../backlog/plans/2026-05-28-skills-agents-tiering-matrix.md)
+- Tiering matrix (полная) — в VIP-репо `vibecommerce_vip_code` (FREE-срез отражён в этом README)

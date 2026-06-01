@@ -5,6 +5,7 @@
 out-of-stock, ценовые акции, тренды.
 """
 
+import os
 import openpyxl
 from openpyxl.styles import Font, Alignment, PatternFill, Border, Side
 from openpyxl.utils import get_column_letter
@@ -400,7 +401,9 @@ ws.freeze_panes = "A2"
 # ============================================================
 # 8. SAVE
 # ============================================================
-output_path = "/Users/vadimbakanov/Documents/_CODE/vibecommerce_test_code/PRJ_MARKETPLACE/sales_data_v1.0.xlsx"
+DATA_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data-demo")
+os.makedirs(DATA_DIR, exist_ok=True)
+output_path = os.path.join(DATA_DIR, "sales_data_v1.0.xlsx")
 wb.save(output_path)
 print(f"✓ Файл сохранён: {output_path}")
 print(f"  Каталог: {len(products)} SKU")

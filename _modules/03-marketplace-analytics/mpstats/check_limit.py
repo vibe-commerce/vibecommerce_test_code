@@ -2,7 +2,7 @@
 """Check MPStats API limits and verify that the API key works.
 
 Usage:
-    uv run --with httpx,python-dotenv PRJ_ANALYTICS/mpstats/check_limit.py
+    uv run --with httpx,python-dotenv _modules/03-marketplace-analytics/mpstats/check_limit.py
 """
 
 from __future__ import annotations

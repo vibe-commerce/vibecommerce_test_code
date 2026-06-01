@@ -18,7 +18,7 @@ Last Updated: 2026-05-02
 | [`data/`](data/) | Skill memory (error-log.md и др., gitignored если нужно) |
 | `settings.json` | Permissions, hooks, enabled plugins |
 | `settings.local.json` | Личные настройки разработчика (gitignored) |
-| [`EXTERNAL-TOOLS.md`](EXTERNAL-TOOLS.md) | Внешние агенты/скиллы, ожидаемые **глобально** в `~/.claude/` (ставятся через `make install-claude-tools`) |
+| [`EXTERNAL-TOOLS.md`](EXTERNAL-TOOLS.md) | Внешние агенты/скиллы, ожидаемые **глобально** в `~/.claude/` (пока ставятся вручную; bootstrap-скрипт запланирован) |
 
 ## Skills vs Agents vs Rules vs Hooks
 

@@ -1,6 +1,6 @@
 """
 Cashflow model for marketplace business (WB + Ozon).
-Input:  PRJ_MARKETPLACE/sales_data_v1.0.xlsx, ads_data_v2.0.xlsx
+Input:  _modules/05-ads-optimization/data-demo/{sales_data_v1.0,ads_data_v2.0}.xlsx
 Output: cashflow_model.xlsx
 
 Allowed assumptions (explicit, tunable):
@@ -23,10 +23,11 @@ from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 from openpyxl.utils import get_column_letter
 from openpyxl.chart import LineChart, Reference
 
-ROOT = Path(__file__).resolve().parents[2]
-SALES_FILE = ROOT / 'PRJ_MARKETPLACE' / 'sales_data_v1.0.xlsx'
-ADS_FILE   = ROOT / 'PRJ_MARKETPLACE' / 'ads_data_v2.0.xlsx'
-OUT        = ROOT / 'PRJ_ANALYTICS' / 'cashflow' / 'cashflow_model.xlsx'
+MODULES = Path(__file__).resolve().parents[2]
+# Демо-данные общие с модулем 05 (генерируются его скриптами в data-demo/)
+SALES_FILE = MODULES / '05-ads-optimization' / 'data-demo' / 'sales_data_v1.0.xlsx'
+ADS_FILE   = MODULES / '05-ads-optimization' / 'data-demo' / 'ads_data_v2.0.xlsx'
+OUT        = Path(__file__).resolve().parent / 'cashflow_model.xlsx'
 
 # ==== ДОПУЩЕНИЯ (меняй здесь) ========================================
 START_CASH            = 1_500_000

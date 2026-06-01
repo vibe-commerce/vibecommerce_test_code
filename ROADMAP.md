@@ -21,7 +21,7 @@ Last Updated: 2026-05-29
 **Цель:** превратить test_code в шаблонный стартер для студентов-селлеров
 курса Вайб-Коммерс с тирингом FREE/VIP и cross-agent совместимостью.
 
-План: [`backlog/plans/2026-05-28-upgrade-test-code-from-best-practices.md`](backlog/plans/2026-05-28-upgrade-test-code-from-best-practices.md).
+История апгрейда 0.2.0 → 0.3.0 — в [`_changelogs/CHANGELOG.md`](_changelogs/CHANGELOG.md) (запись 0.3.0).
 
 - [x] ШАГ 0 — защита реальных данных (миграция в real-commerce_code)
 - [x] Фаза 0 — чистка мусора и старых планов

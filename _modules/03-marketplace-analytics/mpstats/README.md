@@ -19,50 +19,50 @@ MPSTATS_API_KEY=your_key_here
 ```
 3. Проверь подключение:
 ```bash
-uv run --with httpx,python-dotenv PRJ_ANALYTICS/mpstats/check_limit.py
+uv run --with httpx,python-dotenv _modules/03-marketplace-analytics/mpstats/check_limit.py
 ```
 
 ## Скрипты
 
 ### `check_limit.py` — проверка API
 ```bash
-uv run --with httpx,python-dotenv PRJ_ANALYTICS/mpstats/check_limit.py
+uv run --with httpx,python-dotenv _modules/03-marketplace-analytics/mpstats/check_limit.py
 ```
 
 ### `analyze_sku.py` — анализ товара по ID
 ```bash
-uv run --with httpx,python-dotenv PRJ_ANALYTICS/mpstats/analyze_sku.py 123456789
-uv run --with httpx,python-dotenv PRJ_ANALYTICS/mpstats/analyze_sku.py 123456789 --platform wb
-uv run --with httpx,python-dotenv PRJ_ANALYTICS/mpstats/analyze_sku.py 123456789 --niche
-uv run --with httpx,python-dotenv,openpyxl PRJ_ANALYTICS/mpstats/analyze_sku.py 123456789 --xlsx report.xlsx
+uv run --with httpx,python-dotenv _modules/03-marketplace-analytics/mpstats/analyze_sku.py 123456789
+uv run --with httpx,python-dotenv _modules/03-marketplace-analytics/mpstats/analyze_sku.py 123456789 --platform wb
+uv run --with httpx,python-dotenv _modules/03-marketplace-analytics/mpstats/analyze_sku.py 123456789 --niche
+uv run --with httpx,python-dotenv,openpyxl _modules/03-marketplace-analytics/mpstats/analyze_sku.py 123456789 --xlsx report.xlsx
 ```
 
 ### `analyze_category.py` — анализ категории
 ```bash
-uv run --with httpx,python-dotenv PRJ_ANALYTICS/mpstats/analyze_category.py "Электроника/Смартфоны"
-uv run --with httpx,python-dotenv PRJ_ANALYTICS/mpstats/analyze_category.py "Электроника" --platform wb --days 60
-uv run --with httpx,python-dotenv,openpyxl PRJ_ANALYTICS/mpstats/analyze_category.py "Электроника" --xlsx report.xlsx
+uv run --with httpx,python-dotenv _modules/03-marketplace-analytics/mpstats/analyze_category.py "Электроника/Смартфоны"
+uv run --with httpx,python-dotenv _modules/03-marketplace-analytics/mpstats/analyze_category.py "Электроника" --platform wb --days 60
+uv run --with httpx,python-dotenv,openpyxl _modules/03-marketplace-analytics/mpstats/analyze_category.py "Электроника" --xlsx report.xlsx
 ```
 
 ### `explore_ym.py` — исследование Яндекс Маркет
 ```bash
-uv run --with httpx,python-dotenv PRJ_ANALYTICS/mpstats/explore_ym.py
-uv run --with httpx,python-dotenv PRJ_ANALYTICS/mpstats/explore_ym.py --item 12345
+uv run --with httpx,python-dotenv _modules/03-marketplace-analytics/mpstats/explore_ym.py
+uv run --with httpx,python-dotenv _modules/03-marketplace-analytics/mpstats/explore_ym.py --item 12345
 ```
 
 ### `research_sleep.py` — исследование рынка товаров для сна
 ```bash
 # Полный анализ WB + Ozon → Excel + JSON + консоль
-uv run --with httpx,python-dotenv,openpyxl PRJ_ANALYTICS/mpstats/research_sleep.py
+uv run --with httpx,python-dotenv,openpyxl _modules/03-marketplace-analytics/mpstats/research_sleep.py
 
 # Только WB
-uv run --with httpx,python-dotenv,openpyxl PRJ_ANALYTICS/mpstats/research_sleep.py --platforms wb
+uv run --with httpx,python-dotenv,openpyxl _modules/03-marketplace-analytics/mpstats/research_sleep.py --platforms wb
 
 # Только показать категории (без API-запросов)
-uv run --with httpx,python-dotenv PRJ_ANALYTICS/mpstats/research_sleep.py --discover
+uv run --with httpx,python-dotenv _modules/03-marketplace-analytics/mpstats/research_sleep.py --discover
 
 # Другой период (60 дней)
-uv run --with httpx,python-dotenv,openpyxl PRJ_ANALYTICS/mpstats/research_sleep.py --days 60
+uv run --with httpx,python-dotenv,openpyxl _modules/03-marketplace-analytics/mpstats/research_sleep.py --days 60
 ```
 
 ## Структура
@@ -98,7 +98,7 @@ openpyxl>=3.1      # Excel-экспорт (опционально)
 
 1. Скопируй `research_sleep.py` → `research_{тема}.py`
 2. Замени `SLEEP_CATEGORIES` на категории для своей ниши (найди через `client.get_categories_tree()`)
-3. Запусти: `uv run --with httpx,python-dotenv,openpyxl PRJ_ANALYTICS/mpstats/research_{тема}.py`
+3. Запусти: `uv run --with httpx,python-dotenv,openpyxl _modules/03-marketplace-analytics/mpstats/research_{тема}.py`
 4. Задокументируй результат в `reports/{тема}_{дата}.md`
 
 Подробная инструкция: [REF: .claude/skills/mpstats-research/SKILL.md]

@@ -7,6 +7,7 @@ ABCDX-анализ товаров на основе данных из generate_a
 Результат: новый лист «ABCDX» в файле ads_data_v2.0.xlsx
 """
 
+import os
 import openpyxl
 from openpyxl.styles import Font, Alignment, PatternFill, Border, Side
 from openpyxl.utils import get_column_letter
@@ -380,8 +381,9 @@ for r in unclassified:
 # ============================================================
 # 7. ЗАПИСЬ В EXCEL
 # ============================================================
-INPUT_FILE = "/Users/vadimbakanov/Documents/_CODE/vibecommerce_test_code/PRJ_MARKETPLACE/ads_data_v1.0.xlsx"
-OUTPUT_FILE = "/Users/vadimbakanov/Documents/_CODE/vibecommerce_test_code/PRJ_MARKETPLACE/ads_data_v2.0.xlsx"
+DATA_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data-demo")
+INPUT_FILE = os.path.join(DATA_DIR, "ads_data_v1.0.xlsx")
+OUTPUT_FILE = os.path.join(DATA_DIR, "ads_data_v2.0.xlsx")
 
 wb = openpyxl.load_workbook(INPUT_FILE)
 

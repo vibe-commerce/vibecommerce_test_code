@@ -5,9 +5,9 @@ Fetches category data (products, sellers, brands, trends) from MPStats API
 and outputs a formatted report to console or Excel.
 
 Usage:
-    uv run --with httpx,python-dotenv PRJ_ANALYTICS/mpstats/analyze_category.py "Электроника/Смартфоны"
-    uv run --with httpx,python-dotenv PRJ_ANALYTICS/mpstats/analyze_category.py "Электроника" --platform wb
-    uv run --with httpx,python-dotenv,openpyxl PRJ_ANALYTICS/mpstats/analyze_category.py "Электроника" --xlsx report.xlsx
+    uv run --with httpx,python-dotenv _modules/03-marketplace-analytics/mpstats/analyze_category.py "Электроника/Смартфоны"
+    uv run --with httpx,python-dotenv _modules/03-marketplace-analytics/mpstats/analyze_category.py "Электроника" --platform wb
+    uv run --with httpx,python-dotenv,openpyxl _modules/03-marketplace-analytics/mpstats/analyze_category.py "Электроника" --xlsx report.xlsx
 """
 
 from __future__ import annotations

@@ -21,7 +21,7 @@
 ## Архитектура результата
 
 ```
-PRJ_ANALYTICS/
+_modules/03-marketplace-analytics/
 └── mpstats/
     ├── PLAN.md                # Этот файл
     ├── README.md              # Документация по использованию
@@ -41,7 +41,7 @@ PRJ_ANALYTICS/
 
 | # | Действие | Файл | Статус |
 |---|----------|------|--------|
-| 1.1 | Создать папку `PRJ_ANALYTICS/mpstats/` | — | DONE |
+| 1.1 | Создать папку `_modules/03-marketplace-analytics/mpstats/` | — | DONE |
 | 1.2 | Добавить `MPSTATS_API_KEY` в `.env` | `.env` | TODO (требуется ключ) |
 | 1.3 | Создать `.env.example` с шаблоном (без секретов) | `.env.example` | DONE |
 
@@ -134,22 +134,22 @@ PRJ_ANALYTICS/
 **Формат запуска:**
 ```bash
 # Ozon (по умолчанию)
-uv run --with httpx,python-dotenv,openpyxl PRJ_ANALYTICS/mpstats/analyze_sku.py 123456789
+uv run --with httpx,python-dotenv,openpyxl _modules/03-marketplace-analytics/mpstats/analyze_sku.py 123456789
 
 # Wildberries
-uv run --with httpx,python-dotenv,openpyxl PRJ_ANALYTICS/mpstats/analyze_sku.py 123456789 --platform wb
+uv run --with httpx,python-dotenv,openpyxl _modules/03-marketplace-analytics/mpstats/analyze_sku.py 123456789 --platform wb
 
 # Яндекс Маркет
-uv run --with httpx,python-dotenv,openpyxl PRJ_ANALYTICS/mpstats/analyze_sku.py 123456789 --platform ym
+uv run --with httpx,python-dotenv,openpyxl _modules/03-marketplace-analytics/mpstats/analyze_sku.py 123456789 --platform ym
 
 # Категория на WB
-uv run --with httpx,python-dotenv,openpyxl PRJ_ANALYTICS/mpstats/analyze_category.py "Электроника/Смартфоны" --platform wb
+uv run --with httpx,python-dotenv,openpyxl _modules/03-marketplace-analytics/mpstats/analyze_category.py "Электроника/Смартфоны" --platform wb
 
 # Проверка лимитов
-uv run --with httpx,python-dotenv,openpyxl PRJ_ANALYTICS/mpstats/check_limit.py
+uv run --with httpx,python-dotenv,openpyxl _modules/03-marketplace-analytics/mpstats/check_limit.py
 
 # Исследование YM эндпоинтов
-uv run --with httpx,python-dotenv,openpyxl PRJ_ANALYTICS/mpstats/explore_ym.py
+uv run --with httpx,python-dotenv,openpyxl _modules/03-marketplace-analytics/mpstats/explore_ym.py
 ```
 
 **Каждый скрипт:**
@@ -169,8 +169,8 @@ uv run --with httpx,python-dotenv,openpyxl PRJ_ANALYTICS/mpstats/explore_ym.py
 
 | # | Действие | Файл | Статус |
 |---|----------|------|--------|
-| 6.1 | README для mpstats | `PRJ_ANALYTICS/mpstats/README.md` | DONE |
-| 6.2 | Обновить README проекта PRJ_ANALYTICS | `PRJ_ANALYTICS/README.md` | DONE |
+| 6.1 | README для mpstats | `_modules/03-marketplace-analytics/mpstats/README.md` | DONE |
+| 6.2 | Обновить README модуля аналитики | `_modules/03-marketplace-analytics/README.md` | DONE |
 | 6.3 | Обновить корневой README — навигация | `README.md` | DONE |
 | 6.4 | Обновить CLAUDE.md — переменная MPSTATS_API_KEY | `CLAUDE.md` | DONE |
 

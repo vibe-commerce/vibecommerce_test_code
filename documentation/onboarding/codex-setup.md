@@ -52,8 +52,8 @@ cp .codex/config.toml.template ./.codex/config.toml
 
 Текущий статус: stub. Полная реализация — задача отдельной сессии.
 
-См. план: [`../../backlog/plans/2026-05-28-upgrade-test-code-from-best-practices.md`](../../backlog/plans/2026-05-28-upgrade-test-code-from-best-practices.md)
-раздел 3.12 «Фаза C».
+См. историю реализации cross-agent слоя в [`../../_changelogs/CHANGELOG.md`](../../_changelogs/CHANGELOG.md)
+(записи 0.3.0 / 0.3.1).
 
 ## Шаг 5 — MCP
 
