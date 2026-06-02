@@ -1,0 +1,23 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "apply_patch|Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'd=$(git rev-parse --show-toplevel 2>/dev/null) && bash \"$d/.codex/hooks/auto-ruff.sh\"'",
+            "statusMessage": "ruff --fix изменённых .py",
+            "timeout": 120
+          },
+          {
+            "type": "command",
+            "command": "bash -c 'd=$(git rev-parse --show-toplevel 2>/dev/null) && bash \"$d/.codex/hooks/memory-bank-check.sh\"'",
+            "statusMessage": "MEMORY BANK check",
+            "timeout": 60
+          }
+        ]
+      }
+    ]
+  }
+}

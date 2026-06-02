@@ -1,6 +1,6 @@
 # CLAUDE.md — vibecommerce_test_code
 
-Last Updated: 2026-05-29 (v0.3.0 lifecycle EMPTY_code 0.5.4 + FREE/VIP tiering + Codex compat)
+Last Updated: 2026-06-02 (v0.3.2 lifecycle EMPTY_code 0.5.4 + FREE/VIP tiering + Codex compat)
 
 См. [@README.md](README.md) — обзор шаблона для студентов.
 
@@ -253,7 +253,7 @@ README в каждой папке — это карта памяти проек�
 - Общая часть — `_shared/INSTRUCTIONS.md` (импортируется обоими через `@`)
 - Общие skills/subagents — `.agents/` (симлинки в `.claude/` и `.codex/`)
 
-См. фазу C плана апгрейда + `_specs/codex-compat/` (после реализации).
+Cross-agent слой **реализован** (0.3.0+; Codex-хуки — 0.3.2). Детали — `_specs/codex-compat/`.
 
 ## Навигация
 

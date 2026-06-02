@@ -7,7 +7,7 @@ description: Архитектурный анализ и планирование
 
 Результат работы скилла = **файл плана** в `backlog/plans/<YYYY-MM-DD>-<slug>.md`,
 не сообщение в чат. Без согласования пользователем («делай» / «ок» /
-«поехали») план НЕ исполняется (см. [`.claude/rules/plan-before-act.md`](../../rules/plan-before-act.md)).
+«поехали») план НЕ исполняется (см. правило `.claude/rules/plan-before-act.md`).
 
 ## Instructions
 

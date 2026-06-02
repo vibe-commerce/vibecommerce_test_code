@@ -1,22 +1,25 @@
 # `_shared/hooks/` — общие хуки
 
-Last Updated: 2026-05-29
+Last Updated: 2026-06-02
 
 ## Что здесь
 
-Общие хуки, которые должны срабатывать одинаково в Claude Code и OpenAI Codex.
+Зарезервировано под **платформо-агностичные** хуки-хелперы (общие для Claude
+Code и OpenAI Codex). Сейчас таких нет.
 
-Симлинки на эти хуки лежат в:
-- `.claude/hooks/` (для Claude Code — конфигурируется в `settings.json`)
-- `.codex/hooks/` (для Codex — конфигурируется в `config.toml`)
+⚠️ Хуки `memory-bank-check` и `auto-ruff` — это **платформо-специфичные
+адаптеры** с разным I/O-контрактом, поэтому НЕ шарятся через симлинки:
+- Claude-версии — реальные файлы в `.claude/hooks/` (конфиг — `settings.json`)
+- Codex-версии — реальные файлы в `.codex/hooks/` (apply_patch-aware;
+  монтируются через `.codex/hooks.json` + `[features] hooks = true` в `.codex/config.toml`)
 
-## Текущие хуки
+## Текущие хуки (платформо-специфичные — лежат НЕ здесь)
 
-(Скрипты лежат в `.claude/hooks/` пока. После реализации `scripts/sync-agents-config.sh`
-они переедут сюда, а в `.claude/hooks/` и `.codex/hooks/` останутся симлинки.)
+- `memory-bank-check.sh` — PostToolUse: при изменении файла напоминает обновить
+  `README.md` его папки. Claude → `.claude/hooks/`, Codex → `.codex/hooks/`.
+- `auto-ruff.sh` — PostToolUse: `ruff --fix` изменённых `.py`. Codex → `.codex/hooks/`.
 
-- `memory-bank-check.sh` — PostToolUse hook. При изменении файла предупреждает,
-  если в его папке не обновлён `README.md`. (live в `.claude/hooks/`)
+`_shared/hooks/` остаётся пустой до появления реально платформо-агностичного хука.
 
 ## Связанные
 

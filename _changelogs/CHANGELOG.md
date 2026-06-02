@@ -5,6 +5,47 @@
 Semver правило шаблона (template) — в [CLAUDE.md](../CLAUDE.md) раздел
 «Semver для шаблона vibecommerce_test_code».
 
+## 0.3.2 — 2026-06-02
+
+PATCH-ремонт внутренней целостности, раунд 2 (план:
+`backlog/plans/2026-06-02-template-integrity-round2.md`, итерация 1 — только FREE).
+Закрывает остаток doc-гигиены 0.3.1 + реализует Codex-хуки.
+
+### Added
+- **Рабочие Codex-хуки** (Вариант A, порт из EMPTY_code 0.6.2):
+  `.codex/hooks/{auto-ruff,memory-bank-check}.sh` (apply_patch-aware,
+  self-locating через `git rev-parse`), `.codex/hooks.json`, committed
+  `.codex/config.toml` (`[features] hooks = true`). Устранён «молчаливый отказ»:
+  раньше `config.toml.template` объявлял `[hooks] path`, а папка была пуста →
+  хуки не срабатывали. Smoke: хук работает из подкаталога и на `apply_patch`.
+
+### Fixed
+- Рассинхрон версии-шапок: `README.md`, `CLAUDE.md`, `AGENTS.md` застряли на
+  «0.3.0 / 2026-05-29» → синхронизированы с `VERSION`/`pyproject` (0.3.2)
+- `ROADMAP.md`: фазы 1/2/2.5/3/4/5/7/C показывались `[ ]` «70% выполнено»,
+  хотя реализованы → перенесены в «Завершено»; «В работе» = sync FREE→VIP
+- Битая ссылка `.agents/skills/architect/SKILL.md` → `../../rules/`
+  (= `.agents/rules/`, не существует) → code-literal `.claude/rules/plan-before-act.md`
+- Инструкции ссылались на несуществующий `_changelogs/local.md`
+  (`_practices/{00-WORKFLOW,03-development-checklist,05-document-and-backup}.md`) → `CHANGELOG.md`
+- Формулировки «фаза C (после реализации)» / «codex-setup (в работе)» →
+  «реализовано» (CLAUDE.md, README.md, AGENTS.md)
+- `HANDOFF.md` протух (2026-05-08, чужой контекст v0.5.4) → шаблонная заглушка
+
+### Changed
+- deploy-инфра (`/docs` skill, `docs-generator`, `documentation/40-DEPLOY.md`)
+  помечена «не применимо в базовом шаблоне» (нет DEV/PROD; активирует форкер)
+- `_shared/hooks/README.md`, `.codex/hooks/README.md`, `.codex/config.toml.template`:
+  корректная модель — Codex-хуки это реальные адаптеры в `.codex/hooks/`,
+  а не симлинки на `_shared/hooks/` (разный I/O-контракт с Claude-хуками)
+
+### Verified (ложные срабатывания аудита — правок не требуют)
+- skill-creator «6 битых ссылок» (FORMS/OOXML/REDLINING) — внутри ```markdown
+  code-fence (примеры progressive disclosure), не реальные ссылки
+- agent-creator references — все 3 (`patterns`, `tools-and-hooks`,
+  `advanced-examples`) существуют; скилл внутренне консистентен
+- Принцип №0 — без регрессий
+
 ## 0.3.1 — 2026-06-02
 
 PATCH-ремонт целостности шаблона по результатам QA-прогона (план:

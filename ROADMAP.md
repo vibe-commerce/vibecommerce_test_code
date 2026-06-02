@@ -1,6 +1,6 @@
 # Roadmap — vibecommerce_test_code
 
-Last Updated: 2026-05-29
+Last Updated: 2026-06-02
 
 > Стратегический план развития **шаблона** (template). Не путать с roadmap'ом
 > студента, который форкает шаблон под свой проект селлера.
@@ -14,35 +14,47 @@ Last Updated: 2026-05-29
 - [x] PRJ_* проекты (MARKETPLACE, PRICING, ANALYTICS, ВОРОНКА, ВЫБОР_НИШИ)
 - [x] Первые skills (mpstats-analyst, ecom-manager, project-manager, etc.)
 
-## В работе
-
-### Phase 1 (template) — Апгрейд 0.3.0 (текущая)
+### Phase 1 (template) — Апгрейд 0.3.0 → 0.3.2
 
 **Цель:** превратить test_code в шаблонный стартер для студентов-селлеров
-курса Вайб-Коммерс с тирингом FREE/VIP и cross-agent совместимостью.
+курса Вайб-Коммерс с тирингом FREE/VIP и cross-agent совместимостью. **Достигнута.**
 
-История апгрейда 0.2.0 → 0.3.0 — в [`_changelogs/CHANGELOG.md`](_changelogs/CHANGELOG.md) (запись 0.3.0).
+История релизов — в [`_changelogs/CHANGELOG.md`](_changelogs/CHANGELOG.md):
+0.3.0 — апгрейд скелета; 0.3.1 / 0.3.2 — ремонт целостности.
 
 - [x] ШАГ 0 — защита реальных данных (миграция в real-commerce_code)
 - [x] Фаза 0 — чистка мусора и старых планов
-- [ ] Фаза 1 — канонический скелет EMPTY_code v0.5.4 (70% выполнено)
-- [ ] Фаза 2 — AI-инфраструктура (.claude/{settings,rules,hooks})
-- [ ] Фаза 2.5/2.6 — миграция и добавление skills + agents
-- [ ] Фаза 3 — knowledge + prompts (marketplaces, legal, suppliers, roles, JTBD)
-- [ ] Фаза 4 — юнит-экономика (шаблоны без реальных цифр)
-- [ ] Фаза 5 — реорганизация PRJ_* → _modules/ + my-project/
-- [ ] Фаза 7 — onboarding студента (quickstart-fork, install-{macos,windows}, claude-code-setup, vip-setup)
-- [ ] Фаза C — Cross-agent compatibility (Claude Code + OpenAI Codex)
+- [x] Фаза 1 — канонический скелет EMPTY_code v0.5.4
+- [x] Фаза 2 — AI-инфраструктура (.claude/{settings,rules,hooks})
+- [x] Фаза 2.5/2.6 — миграция и добавление skills + agents
+- [x] Фаза 3 — knowledge + prompts (marketplaces, legal, suppliers, roles, JTBD)
+- [x] Фаза 4 — юнит-экономика (шаблоны без реальных цифр)
+- [x] Фаза 5 — реорганизация PRJ_* → _modules/ + my-project/
+- [x] Фаза 7 — onboarding студента (quickstart-fork, install-{macos,windows}, claude-code-setup, vip-setup)
+- [x] Фаза C — Cross-agent compatibility (Claude Code + OpenAI Codex)
+- [x] 0.3.1 — ремонт целостности (install / тесты / cross-agent / pure-template)
+- [x] 0.3.2 — ремонт целостности раунд 2 + рабочие Codex-хуки (apply_patch-aware, self-locating)
+
+## В работе
+
+### Sync целостности FREE → VIP (итерация 2 плана integrity-round2)
+
+Портировать фиксы целостности 0.3.1 / 0.3.2 в `vibecommerce_vip_code`
+(verify-скрипт, pyproject, валидный TOML агентов, битые ссылки, Принцип №0),
+bump VIP → 0.3.1. План:
+[`backlog/plans/2026-06-02-template-integrity-round2.md`](backlog/plans/2026-06-02-template-integrity-round2.md).
 
 ## Следующие фазы
 
-### Phase 2 (template) — VIP-репо
+### Phase 2 (template) — VIP-репо (развёрнут: v0.3.0, BSL 1.1)
 
-Параллельная задача в [`vibecommerce_vip_code`](https://github.com/vibe-commerce/vibecommerce_vip_code) (private):
+В [`vibecommerce_vip_code`](https://github.com/vibe-commerce/vibecommerce_vip_code) (private):
 
-- [ ] V1-V3 — форк скелета из test_code v0.3.0, BSL 1.1 лицензия
-- [ ] V4-V8 — миграция VIP skills (jtbd-research, ecom-manager, seo-content, seo-positions, seo-research), agents (niche-researcher, shopping-researcher, seo-auditor), knowledge (marketplace-discounts, 6-фазная методика выбора ниши, supplier deep-dive), prompts (Head_of_E-Commerce, AJTBD Copilot, CFO, Product Hero)
-- [ ] V10-V14 — onboarding для VIP-студентов + git pull workflow
+- [x] V1-V3 — форк скелета из test_code, BSL 1.1 лицензия
+- [~] V4-V8 — миграция VIP skills / agents / knowledge / prompts (~80%; остаток:
+  6-фазная методика ниши, supplier deep-dive, Ahrefs/Semrush-интеграции)
+- [~] V10-V14 — onboarding для VIP-студентов + git pull workflow
+- [ ] Sync целостности 0.3.1 / 0.3.2 + bump VIP → 0.3.1 (см. «В работе»)
 
 ### Phase 3 (template) — Архивация donor-репо
 

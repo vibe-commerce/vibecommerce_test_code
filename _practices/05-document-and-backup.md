@@ -1,6 +1,6 @@
 # Документация → Push в GitHub
 
-Last Updated: 2026-05-01
+Last Updated: 2026-06-02
 
 > Не задокументировано → как будто не сделано.
 > Не запушено → существует только на твоём ноутбуке.
@@ -18,8 +18,8 @@ Last Updated: 2026-05-01
 | Новый шаг деплоя / окружение | `documentation/40-DEPLOY.md` |
 | Решена бага / инцидент | `documentation/80-ERROR-REGISTRY.md` |
 | Новые файлы в подпапке | README этой подпапки |
-| Любое значимое изменение | `_changelogs/local.md` |
-| Релиз / bump VERSION | `VERSION` + `_changelogs/local.md` |
+| Любое значимое изменение | `_changelogs/CHANGELOG.md` |
+| Релиз / bump VERSION | `VERSION` + `_changelogs/CHANGELOG.md` |
 | Текущий фокус сессии | `AGENDA.md` |
 | Финал спецификации | `_specs/<feature>/` |
 
@@ -127,7 +127,7 @@ main = архив
 - Код в `local` ветке
 - Запушен на GitHub
 - `documentation/` обновлён
-- `_changelogs/local.md` имеет запись
+- `_changelogs/CHANGELOG.md` имеет запись
 - Все галочки чек-листа из [03-development-checklist.md](03-development-checklist.md) закрыты
 
 Без этого — **задача не закрыта**, даже если «фича работает».

@@ -1,6 +1,6 @@
 # `documentation/` — живая документация проекта
 
-Last Updated: 2026-05-29
+Last Updated: 2026-06-02
 
 ## Что здесь
 

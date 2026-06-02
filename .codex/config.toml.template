@@ -18,9 +18,9 @@ path = ".codex/skills"
 # Sub-агенты (генерируются из ../.agents/subagents/)
 path = ".codex/agents"
 
-[hooks]
-# Hooks (симлинки на ../_shared/hooks/)
-path = ".codex/hooks"
+# Lifecycle-хуки включены в project-scoped .codex/config.toml
+# ([features] hooks = true → грузит .codex/hooks.json: auto-ruff + memory-bank-check).
+# В user-level конфиге (~/.codex/config.toml) дублировать НЕ нужно.
 
 # MCP конфиг генерируется из _shared/mcp.yaml через scripts/sync-agents-config.sh
 # Полный путь: .codex/.mcp.toml (после реализации C7)

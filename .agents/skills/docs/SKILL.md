@@ -5,6 +5,10 @@ description: Обновление документации после депло
 
 # /docs — Documentation Update (entry-point)
 
+> ⚠️ DEV/PROD-режим ниже — для форков с боевым деплоем. В **базовом шаблоне**
+> деплой-окружений нет (CLAUDE.md: «В шаблоне НЕТ DEV/PROD»); тогда `/docs`
+> обновляет только `_status/PROJECT_STATUS.md`, `_changelogs/CHANGELOG.md`, `documentation/`.
+
 Тонкий entry-point. Полный workflow обновления документации живёт в саб-агенте
 `docs-generator` — он читает много файлов (коммиты, status-файлы, registry)
 и поэтому изолируется в отдельный контекст.

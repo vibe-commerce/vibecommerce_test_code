@@ -12,8 +12,8 @@
 
 # vibecommerce_test_code
 
-Last Updated: 2026-05-29
-Версия шаблона: **0.3.0**
+Last Updated: 2026-06-02
+Версия шаблона: **0.3.2**
 
 ## Что это
 
@@ -135,7 +135,7 @@ make install
 - **OpenAI Codex** — читает `AGENTS.md` (agents.md spec) + `.codex/`
 - Общая часть — `_shared/INSTRUCTIONS.md` (импортируется через `@`)
 
-См. фазу C плана апгрейда + `_specs/codex-compat/` (после реализации).
+Cross-agent слой **реализован** (0.3.0+). Детали — `_specs/codex-compat/` и [AGENTS.md](AGENTS.md).
 
 ## Автор
 

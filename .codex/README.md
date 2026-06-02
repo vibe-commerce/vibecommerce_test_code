@@ -1,6 +1,6 @@
 # `.codex/` — OpenAI Codex-specific конфиг
 
-Last Updated: 2026-05-29
+Last Updated: 2026-06-02
 
 ## Что здесь
 
@@ -8,11 +8,13 @@ Last Updated: 2026-05-29
 
 ```
 .codex/
-├── config.toml.template   ← шаблон конфига (копируется в ~/.codex/config.toml)
+├── config.toml            ← project-scoped конфиг (committed, team-safe; [features] hooks = true)
+├── config.toml.template   ← user-level дефолты (копируется в ~/.codex/config.toml)
+├── hooks.json             ← монтирование PostToolUse-хуков для Codex
+├── hooks/<name>.sh        ← реальные Codex-адаптеры (auto-ruff, memory-bank-check; apply_patch-aware)
 ├── skills/<name>          ← симлинки на ../.agents/skills/<name>
 ├── agents/<name>.toml     ← генерируются из ../.agents/subagents/<name>.yaml
 ├── prompts/               ← legacy slash-commands (если нужны)
-├── hooks/                 ← симлинки на ../_shared/hooks/
 └── README.md
 ```
 
@@ -26,7 +28,7 @@ Last Updated: 2026-05-29
 
 2. Запусти sync для проверки симлинков:
    ```bash
-   bash scripts/sync-agents-config.sh   # после реализации (C7)
+   bash scripts/sync-agents-config.sh
    ```
 
 3. Проверь, что Codex видит:
@@ -40,4 +42,4 @@ Last Updated: 2026-05-29
 - Общие инструкции: [`../_shared/INSTRUCTIONS.md`](../_shared/INSTRUCTIONS.md)
 - Общие skills: [`../.agents/`](../.agents/)
 - Claude эквивалент: [`../.claude/`](../.claude/)
-- Onboarding: [`../documentation/onboarding/codex-setup.md`](../documentation/onboarding/codex-setup.md) *(в работе)*
+- Onboarding: [`../documentation/onboarding/codex-setup.md`](../documentation/onboarding/codex-setup.md)

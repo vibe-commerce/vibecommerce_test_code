@@ -1,6 +1,6 @@
 # _practices/ — рабочие подходы
 
-Last Updated: 2026-05-01
+Last Updated: 2026-06-02
 
 Папка с **practical workflows** — как именно работать с этим репозиторием
 по шагам. В отличие от `documentation/` (факты о реализованном) и

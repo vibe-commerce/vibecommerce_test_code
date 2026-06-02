@@ -4,8 +4,8 @@
 > Эквивалент для Claude Code → [CLAUDE.md](CLAUDE.md).
 > Общая часть для обоих → [_shared/INSTRUCTIONS.md](_shared/INSTRUCTIONS.md).
 
-Last Updated: 2026-05-29
-Version: 0.3.0 (lifecycle EMPTY_code 0.5.4 + FREE/VIP + cross-agent compat)
+Last Updated: 2026-06-02
+Version: 0.3.2 (lifecycle EMPTY_code 0.5.4 + FREE/VIP + cross-agent compat)
 
 ## TL;DR для Codex
 
@@ -73,7 +73,9 @@ Codex использует skills из `.codex/skills/` (симлинки на `
 - `playwright` — браузерная автоматизация
 
 ### Хуки
-Codex hooks — в `.codex/hooks/` (симлинки на `_shared/hooks/`).
+Codex hooks — реальные адаптеры в `.codex/hooks/` (`auto-ruff.sh`,
+`memory-bank-check.sh`, apply_patch-aware). Монтируются через `.codex/hooks.json`
++ `[features] hooks = true` в `.codex/config.toml`.
 
 ### Permissions / Config
 - `.codex/config.toml.template` — шаблон конфига. Скопируй в `~/.codex/config.toml` или подкорректируй для project-local.
@@ -107,7 +109,7 @@ code .  # или открой через codex CLI
 # 5. Дальше — workflow по _practices/00-WORKFLOW.md
 ```
 
-Подробности → [`documentation/onboarding/codex-setup.md`](documentation/onboarding/codex-setup.md) *(в работе)*.
+Подробности → [`documentation/onboarding/codex-setup.md`](documentation/onboarding/codex-setup.md).
 
 ## Связанные
 

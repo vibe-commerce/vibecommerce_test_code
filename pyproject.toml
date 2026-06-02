@@ -1,7 +1,7 @@
 # name — дефолт шаблона; при форке переименуй под свой проект селлера.
 [project]
 name = "vibecommerce-seller-project"
-version = "0.3.1"
+version = "0.3.2"
 requires-python = ">=3.11"
 dependencies = [
     "pyyaml",

@@ -1,0 +1,29 @@
+# .codex/config.toml — project-scoped конфиг OpenAI Codex (team-safe, committed).
+#
+# Принципы: безопасные дефолты, БЕЗ секретов, БЕЗ model-pin (модель наследуется
+# из user/CLI-конфига — решение пользователя). User-level настройки и ключи
+# здесь НЕ хранятся. Загружается только для trusted .codex/ слоя форка.
+#
+# Полные нативные инструкции Codex → ../AGENTS.md
+# Общие инструкции (обе платформы) → ../_shared/INSTRUCTIONS.md
+# User-level дефолты (скопируй в ~/.codex/config.toml) → config.toml.template
+
+# Подтверждение действий: спрашивать по необходимости (не auto-approve).
+approval_policy = "on-request"
+
+# Песочница: запись разрешена только в рабочую директорию.
+sandbox_mode = "workspace-write"
+
+# Сеть в песочнице ВЫКЛЮЧЕНА по умолчанию (явный opt-in при необходимости).
+[sandbox_workspace_write]
+network_access = false
+
+# Lifecycle-хуки из .codex/hooks.json включены (грузятся для trusted repo):
+# auto-ruff (ruff --fix изменённых .py) + memory-bank-check (напоминание про README).
+[features]
+hooks = true
+
+# MCP-серверы (context7 + playwright) — в _shared/mcp.yaml, генерируются в
+# .codex/.mcp.toml через scripts/sync-agents-config.sh. Здесь НЕ дублируем.
+
+# [agents] max_threads / max_depth — НЕ пиним (team-safe); дефолты Codex 6 и 1.
